@@ -6,34 +6,28 @@
 <title>Lessie Bea Life Vault 🐝</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-:root{
-  --pink:#ffd1dc;
-  --pink2:#ffb6c8;
-  --dark:#222;
-  --gold:#f5c542;
-  --white:#fff;
-  --gray:#f6f6f6;
-  --border:#eadde2;
-  --green:#8bcf9b;
-  --purple:#cbb7ff;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#fff5f8,#ffffff);
-  color:var(--dark);
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#ffd6e4,#fff,#ffe8f0);
+  color:#222;
   min-height:100vh;
 }
 
-button,input,textarea,select{
-  font-family:inherit;
+button,
+input,
+textarea,
+select{
+  font:inherit;
 }
 
 button{
   cursor:pointer;
-  border:none;
 }
 
 .app{
@@ -41,81 +35,102 @@ button{
   min-height:100vh;
 }
 
-/* SIDEBAR */
+/* =========================
+   SIDEBAR
+========================= */
+
 .sidebar{
-  width:255px;
-  background:#fff;
-  border-right:1px solid var(--border);
-  padding:20px 14px;
+  width:260px;
+  background:#111;
+  color:white;
   position:fixed;
   left:0;
   top:0;
   bottom:0;
   overflow-y:auto;
+  padding:20px 14px;
   z-index:1000;
 }
 
 .logo{
   text-align:center;
-  margin-bottom:20px;
+  padding:8px 5px 22px;
 }
 
-.logo .bee{
-  font-size:45px;
+.logo-bubble{
+  width:72px;
+  height:72px;
+  margin:auto;
+  border-radius:50%;
+  background:#ffd1df;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:38px;
+  box-shadow:0 0 0 5px #222;
 }
 
 .logo h1{
-  font-size:21px;
-  margin-top:4px;
+  color:#ffd1df;
+  font-size:22px;
+  margin-top:12px;
 }
 
 .logo p{
+  color:#ddd;
   font-size:12px;
-  color:#777;
-}
-
-.nav-section{
-  margin-top:18px;
+  margin-top:4px;
 }
 
 .nav-title{
+  color:#aaa;
   font-size:11px;
-  font-weight:bold;
-  color:#999;
   text-transform:uppercase;
-  padding:8px 12px;
+  letter-spacing:1px;
+  margin:18px 10px 7px;
 }
 
 .nav-btn{
   width:100%;
-  text-align:left;
+  border:none;
   background:transparent;
-  padding:11px 12px;
-  border-radius:10px;
-  margin:2px 0;
-  font-size:15px;
+  color:white;
+  text-align:left;
+  padding:11px 13px;
+  border-radius:12px;
+  margin-bottom:4px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 .nav-btn:hover,
 .nav-btn.active{
-  background:var(--pink);
+  background:#ffd1df;
+  color:#111;
 }
 
-.nav-btn span{
-  margin-right:8px;
+.nav-icon{
+  width:25px;
+  text-align:center;
+  font-size:18px;
 }
 
-.main{
-  margin-left:255px;
-  width:calc(100% - 255px);
-  padding:25px;
-}
-
-.mobile-top{
+.mobile-menu{
   display:none;
 }
 
-/* GENERAL */
+/* =========================
+   MAIN
+========================= */
+
+.main{
+  margin-left:260px;
+  width:calc(100% - 260px);
+  min-height:100vh;
+  padding:25px;
+}
+
 .page{
   display:none;
 }
@@ -124,263 +139,454 @@ button{
   display:block;
 }
 
-.header{
+.page-header{
+  margin-bottom:22px;
+}
+
+.page-header h2{
+  font-size:30px;
+  color:#111;
+}
+
+.page-header p{
+  color:#666;
+  margin-top:5px;
+}
+
+/* =========================
+   HOME
+========================= */
+
+.hero{
+  background:#fff;
+  border-radius:24px;
+  padding:30px;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+  margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"🐝";
+  position:absolute;
+  right:30px;
+  bottom:-12px;
+  font-size:100px;
+  opacity:.12;
+}
+
+.hero h2{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#666;
+  max-width:700px;
+  line-height:1.6;
+}
+
+.quick-buttons{
   display:flex;
-  justify-content:space-between;
-  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.btn{
+  border:none;
+  background:#111;
+  color:white;
+  padding:11px 16px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+.btn:hover{
+  opacity:.88;
+}
+
+.btn-pink{
+  background:#ff9fbd;
+  color:#111;
+}
+
+.btn-light{
+  background:#ffe5ee;
+  color:#111;
+}
+
+.btn-danger{
+  background:#d33;
+  color:white;
+}
+
+.btn-green{
+  background:#54a96b;
+  color:white;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
   gap:15px;
   margin-bottom:20px;
 }
 
-.header h2{
-  font-size:27px;
-}
-
-.header p{
-  color:#777;
-  margin-top:5px;
-}
-
-.card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:16px;
+.stat{
+  background:white;
+  border-radius:18px;
   padding:20px;
-  margin-bottom:18px;
-  box-shadow:0 4px 15px rgba(0,0,0,.04);
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
-.card h3{
-  margin-bottom:12px;
+.stat-icon{
+  font-size:25px;
 }
 
-.grid{
+.stat-number{
+  font-size:28px;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+.stat-label{
+  color:#777;
+  font-size:13px;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.grid-3{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:15px;
 }
 
-.grid2{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
+.card{
+  background:white;
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
+  margin-bottom:20px;
 }
 
-.stat{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:18px;
+.card h3{
+  margin-bottom:15px;
+}
+
+.card p{
+  line-height:1.6;
+  color:#555;
+}
+
+.empty{
+  padding:30px;
   text-align:center;
+  color:#888;
+  border:2px dashed #f2bfd0;
+  border-radius:16px;
 }
 
-.stat .number{
-  font-size:30px;
+/* =========================
+   FORMS
+========================= */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-group.full{
+  grid-column:1/-1;
+}
+
+.form-group label{
+  display:block;
   font-weight:bold;
+  margin-bottom:6px;
 }
 
-.stat .label{
-  color:#777;
-  font-size:13px;
-  margin-top:5px;
-}
-
-.btn{
-  padding:10px 15px;
-  border-radius:10px;
-  background:var(--pink);
-  font-weight:bold;
-  margin:3px;
-}
-
-.btn:hover{
-  background:var(--pink2);
-}
-
-.btn.dark{
-  background:#222;
-  color:white;
-}
-
-.btn.gold{
-  background:#f8d76b;
-}
-
-.btn.green{
-  background:#bfe8c7;
-}
-
-.btn.purple{
-  background:#dfd4ff;
-}
-
-.btn.small{
-  padding:7px 10px;
-  font-size:12px;
-}
-
-.btn.danger{
-  background:#ffd0d0;
-}
-
-input,textarea,select{
+.form-group input,
+.form-group textarea,
+.form-group select{
   width:100%;
-  padding:11px;
   border:1px solid #ddd;
-  border-radius:9px;
-  margin-top:5px;
-  margin-bottom:12px;
+  border-radius:11px;
+  padding:11px;
   background:#fff;
 }
 
-textarea{
+.form-group textarea{
   min-height:110px;
   resize:vertical;
 }
 
-label{
-  font-weight:bold;
-  font-size:13px;
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+  outline:2px solid #ffc1d3;
+  border-color:#ff9fbd;
 }
 
-.empty{
-  text-align:center;
-  padding:35px 15px;
-  color:#888;
-}
+/* =========================
+   FILTERS
+========================= */
 
-.tag{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:20px;
-  background:#f2e8ec;
-  font-size:11px;
-  margin:3px;
-}
-
-.favorite{
-  color:#e8ad00;
-}
-
-.muted{
-  color:#777;
-  font-size:13px;
-}
-
-.success{
-  color:#23833b;
-}
-
-.quote{
-  font-size:20px;
-  line-height:1.6;
-  font-style:italic;
-}
-
-/* HOME */
-.hero{
-  background:linear-gradient(135deg,#ffd1dc,#fff);
-  border-radius:20px;
-  padding:28px;
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
   margin-bottom:18px;
 }
 
-.hero h2{
-  font-size:28px;
+.filter-btn{
+  border:1px solid #ddd;
+  background:white;
+  padding:8px 13px;
+  border-radius:20px;
 }
 
-.hero p{
-  margin-top:8px;
-  color:#555;
+.filter-btn.active{
+  background:#111;
+  color:white;
 }
 
-.quick-buttons{
-  margin-top:18px;
-}
+/* =========================
+   MEMORY
+========================= */
 
-/* MEMORY */
 .memory-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:18px;
 }
 
 .memory-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:15px;
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.memory-media{
+  width:100%;
+  height:220px;
+  background:#f8edf2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   overflow:hidden;
 }
 
-.memory-card img{
+.memory-media img{
   width:100%;
-  height:190px;
+  height:100%;
   object-fit:cover;
 }
 
-.memory-content{
+.memory-media video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  background:#111;
+}
+
+.no-media{
+  font-size:55px;
+  opacity:.35;
+}
+
+.memory-body{
   padding:15px;
 }
 
-.memory-content h3{
-  margin-bottom:6px;
+.memory-type{
+  display:inline-block;
+  background:#ffe0eb;
+  padding:5px 8px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:8px;
 }
 
-/* FAITH */
+.memory-title{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.memory-description{
+  color:#666;
+  font-size:14px;
+  line-height:1.5;
+  white-space:pre-wrap;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  margin-top:10px;
+}
+
+.tag{
+  background:#f1f1f1;
+  padding:4px 7px;
+  border-radius:7px;
+  font-size:11px;
+}
+
+.card-actions{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.small-btn{
+  border:none;
+  border-radius:8px;
+  padding:7px 10px;
+  font-size:12px;
+  background:#eee;
+}
+
+.small-btn:hover{
+  opacity:.8;
+}
+
+/* =========================
+   JOURNAL
+========================= */
+
+.journal-entry{
+  background:white;
+  padding:18px;
+  border-radius:17px;
+  margin-bottom:12px;
+  border-left:5px solid #ff9fbd;
+}
+
+.journal-date{
+  font-weight:bold;
+  color:#111;
+  margin-bottom:10px;
+}
+
+.journal-line{
+  margin:7px 0;
+  line-height:1.5;
+}
+
+.journal-line strong{
+  color:#111;
+}
+
+/* =========================
+   FAITH
+========================= */
+
 .faith-tabs{
   display:flex;
-  gap:7px;
   flex-wrap:wrap;
+  gap:7px;
   margin-bottom:18px;
 }
 
 .faith-tab{
-  padding:10px 13px;
-  border-radius:10px;
-  background:#f2edf5;
-  font-weight:bold;
+  border:1px solid #ddd;
+  background:white;
+  padding:9px 13px;
+  border-radius:12px;
 }
 
 .faith-tab.active{
-  background:var(--pink);
+  background:#111;
+  color:white;
 }
 
-/* BIBLE */
+.faith-panel{
+  display:none;
+}
+
+.faith-panel.active{
+  display:block;
+}
+
+/* Bible reader */
+
 .bible-controls{
   display:grid;
-  grid-template-columns:1.5fr 1fr 1fr;
+  grid-template-columns:1fr 1fr 1fr;
   gap:10px;
-  align-items:end;
+  margin-bottom:15px;
 }
 
-.bible-reader{
-  background:#fffdf7;
-  border:1px solid #eee1c4;
-  border-radius:16px;
-  padding:25px;
-  margin-top:15px;
+.bible-controls select,
+.bible-controls input{
+  width:100%;
+  padding:11px;
+  border:1px solid #ddd;
+  border-radius:10px;
+}
+
+.bible-nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:15px;
+}
+
+.bible-status{
+  background:#fff4f8;
+  border-left:5px solid #ff9fbd;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:15px;
+  display:none;
+}
+
+.bible-status.show{
+  display:block;
+}
+
+.bible-chapter{
+  background:#fff;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 4px 18px rgba(0,0,0,.06);
 }
 
 .bible-title{
-  text-align:center;
-  margin-bottom:20px;
+  font-size:25px;
+  margin-bottom:5px;
 }
 
-.bible-title h2{
-  font-family:Georgia,serif;
-  font-size:28px;
-}
-
-.bible-title p{
+.bible-subtitle{
   color:#777;
-  margin-top:5px;
+  margin-bottom:20px;
 }
 
 .verse{
   padding:14px 10px;
   border-bottom:1px solid #eee;
-  line-height:1.7;
-  position:relative;
+  line-height:1.75;
 }
 
 .verse:last-child{
@@ -389,257 +595,317 @@ label{
 
 .verse-number{
   font-weight:bold;
-  color:#a36d7c;
+  color:#d75c87;
   margin-right:7px;
 }
 
+.verse-text{
+  font-size:17px;
+}
+
 .verse-actions{
-  display:inline-flex;
-  gap:4px;
-  margin-left:8px;
+  margin-top:8px;
 }
 
 .verse-save{
+  border:none;
+  background:#ffe1eb;
+  border-radius:8px;
+  padding:6px 9px;
   font-size:11px;
-  padding:4px 7px;
-  border-radius:7px;
-  background:#f7e9ee;
 }
 
-.verse-save:hover{
-  background:#ffd1dc;
-}
+/* Saved scriptures */
 
-.bible-navigation{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:18px;
-}
-
-/* SAVED SCRIPTURES */
 .scripture-card{
   background:#fff;
-  border-left:5px solid var(--pink2);
-  border-radius:12px;
   padding:17px;
+  border-radius:16px;
   margin-bottom:12px;
+  border-left:5px solid #ff9fbd;
 }
 
 .scripture-reference{
   font-weight:bold;
-  margin-bottom:8px;
+  margin-bottom:7px;
 }
 
 .scripture-text{
-  font-family:Georgia,serif;
-  font-size:17px;
   line-height:1.6;
+  color:#555;
 }
 
-.reading-badge{
+.auto-saved{
   display:inline-block;
-  background:#dff4e4;
-  color:#27723a;
-  padding:5px 9px;
-  border-radius:15px;
-  font-size:11px;
+  font-size:10px;
+  background:#e7f6ea;
+  color:#397348;
+  padding:4px 7px;
+  border-radius:7px;
+  margin-top:8px;
 }
 
-/* AFFIRMATIONS */
+/* Reading history */
+
+.history-item{
+  background:white;
+  padding:15px;
+  border-radius:14px;
+  margin-bottom:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+/* Affirmations */
+
+.affirmation-filter{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-bottom:15px;
+}
+
+.affirmation-btn{
+  border:1px solid #ddd;
+  background:white;
+  padding:8px 12px;
+  border-radius:15px;
+}
+
+.affirmation-btn.active{
+  background:#111;
+  color:white;
+}
+
 .affirmation-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:13px;
 }
 
 .affirmation{
   background:#fff;
-  border:1px solid var(--border);
   border-radius:15px;
   padding:18px;
-  position:relative;
-}
-
-.affirmation p{
-  font-size:17px;
-  line-height:1.55;
-  font-weight:600;
+  box-shadow:0 3px 13px rgba(0,0,0,.05);
+  border-top:4px solid #ffb2c8;
+  line-height:1.6;
 }
 
 .affirmation-category{
   font-size:11px;
-  color:#9a6a78;
-  font-weight:bold;
   text-transform:uppercase;
+  color:#d75c87;
+  font-weight:bold;
   margin-bottom:8px;
 }
 
-.affirmation-actions{
-  margin-top:12px;
+/* =========================
+   GOALS
+========================= */
+
+.goal-card{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:14px;
+  box-shadow:0 4px 15px rgba(0,0,0,.05);
 }
 
-/* GOALS */
-.goal-progress{
-  height:12px;
+.goal-header{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.goal-title{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.progress{
+  width:100%;
+  height:13px;
   background:#eee;
   border-radius:20px;
   overflow:hidden;
-  margin:10px 0;
+  margin:12px 0;
 }
 
-.goal-progress div{
+.progress-bar{
   height:100%;
-  background:#f3b6c9;
+  background:#ff9fbd;
 }
 
-/* JOURNAL */
-.journal-entry{
-  border-left:4px solid var(--pink2);
-  padding:15px;
-  background:#fff;
-  margin-bottom:12px;
-  border-radius:8px;
-}
+/* =========================
+   BUSINESS
+========================= */
 
-/* BUSINESS */
 .business-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:18px;
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.05);
 }
 
-/* COLLECTIONS */
-.collection{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:18px;
+/* =========================
+   COLLECTIONS
+========================= */
+
+.collection-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
 }
 
-/* MODAL */
-.modal-overlay{
+.collection-card{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+  margin-bottom:20px;
+}
+
+.search-box input{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:14px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
   display:none;
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.55);
   z-index:3000;
+  padding:20px;
+  overflow-y:auto;
+}
+
+.modal.show{
+  display:flex;
   align-items:center;
   justify-content:center;
-  padding:15px;
 }
 
-.modal-overlay.show{
-  display:flex;
-}
-
-.modal{
-  background:#fff;
-  width:100%;
-  max-width:650px;
+.modal-content{
+  background:white;
+  width:min(750px,100%);
   max-height:90vh;
   overflow-y:auto;
-  border-radius:18px;
-  padding:24px;
+  border-radius:22px;
+  padding:25px;
 }
 
 .modal-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:15px;
+  margin-bottom:20px;
 }
 
 .close{
+  border:none;
   background:#eee;
-  width:32px;
-  height:32px;
+  width:35px;
+  height:35px;
   border-radius:50%;
   font-size:20px;
 }
 
-/* TOAST */
+/* =========================
+   TOAST
+========================= */
+
 .toast{
   position:fixed;
   right:20px;
   bottom:20px;
-  background:#222;
+  background:#111;
   color:white;
-  padding:13px 17px;
-  border-radius:10px;
-  display:none;
+  padding:13px 18px;
+  border-radius:12px;
   z-index:5000;
+  display:none;
+  max-width:350px;
 }
 
 .toast.show{
   display:block;
 }
 
-/* RESPONSIVE */
-@media(max-width:1000px){
-  .grid,
-  .memory-grid{
-    grid-template-columns:repeat(2,1fr);
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+  .sidebar{
+    width:220px;
   }
 
-  .affirmation-grid{
+  .main{
+    margin-left:220px;
+    width:calc(100% - 220px);
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .grid-2{
     grid-template-columns:1fr;
   }
 }
 
-@media(max-width:750px){
+@media(max-width:700px){
   .sidebar{
-    transform:translateX(-100%);
-    transition:.25s;
+    width:100%;
+    position:relative;
+    min-height:auto;
   }
 
-  .sidebar.open{
-    transform:translateX(0);
+  .app{
+    display:block;
   }
 
   .main{
     margin-left:0;
     width:100%;
     padding:15px;
-    padding-top:70px;
   }
 
-  .mobile-top{
-    display:flex;
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    height:55px;
-    background:#fff;
-    border-bottom:1px solid var(--border);
-    z-index:2000;
-    align-items:center;
-    padding:0 12px;
-    justify-content:space-between;
+  .stats{
+    grid-template-columns:1fr 1fr;
   }
 
-  .mobile-top button{
-    background:var(--pink);
-    padding:9px 12px;
-    border-radius:8px;
+  .form-grid{
+    grid-template-columns:1fr;
   }
 
-  .grid,
-  .grid2,
-  .memory-grid,
+  .form-group.full{
+    grid-column:auto;
+  }
+
   .bible-controls{
     grid-template-columns:1fr;
   }
 
-  .header{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .header h2{
-    font-size:23px;
+  .hero h2{
+    font-size:25px;
   }
 }
 </style>
@@ -647,249 +913,276 @@ label{
 
 <body>
 
-<div class="mobile-top">
-  <button onclick="toggleSidebar()">☰ Menu</button>
-  <strong>🐝 Lessie Bea Life Vault</strong>
-</div>
-
 <div class="app">
 
-<aside class="sidebar" id="sidebar">
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<aside class="sidebar">
 
   <div class="logo">
-    <div class="bee">🐝</div>
+    <div class="logo-bubble">🐝</div>
     <h1>Lessie Bea</h1>
     <p>Life Vault</p>
   </div>
 
-  <div class="nav-section">
-    <div class="nav-title">Main</div>
+  <div class="nav-title">My Vault</div>
 
-    <button class="nav-btn active" onclick="showPage('home',this)">
-      <span>🏠</span> Home
-    </button>
+  <button class="nav-btn active" onclick="showPage('home',this)">
+    <span class="nav-icon">🏠</span>
+    Home
+  </button>
 
-    <button class="nav-btn" onclick="showPage('memories',this)">
-      <span>📸</span> Memories
-    </button>
+  <button class="nav-btn" onclick="showPage('memories',this)">
+    <span class="nav-icon">📸</span>
+    Memories
+  </button>
 
-    <button class="nav-btn" onclick="showPage('journal',this)">
-      <span>📔</span> Journal
-    </button>
+  <button class="nav-btn" onclick="showPage('journal',this)">
+    <span class="nav-icon">📔</span>
+    Journal
+  </button>
 
-    <button class="nav-btn" onclick="showPage('favorites',this)">
-      <span>⭐</span> Favorites
-    </button>
+  <button class="nav-btn" onclick="showPage('favorites',this)">
+    <span class="nav-icon">❤️</span>
+    Favorites
+  </button>
 
-    <button class="nav-btn" onclick="showPage('search',this)">
-      <span>🔎</span> Search
-    </button>
-  </div>
+  <button class="nav-btn" onclick="showPage('search',this)">
+    <span class="nav-icon">🔎</span>
+    Search
+  </button>
 
-  <div class="nav-section">
-    <div class="nav-title">Faith Journey</div>
+  <div class="nav-title">Faith Journey</div>
 
-    <button class="nav-btn" onclick="showFaithTab('bible',this)">
-      <span>📖</span> Bible Reader
-    </button>
+  <button class="nav-btn" onclick="showFaithTab('bible')">
+    <span class="nav-icon">📖</span>
+    Bible Reader
+  </button>
 
-    <button class="nav-btn" onclick="showFaithTab('scriptures',this)">
-      <span>⭐</span> My Bible Verses
-    </button>
+  <button class="nav-btn" onclick="showFaithTab('verses')">
+    <span class="nav-icon">✝️</span>
+    My Bible Verses
+  </button>
 
-    <button class="nav-btn" onclick="showFaithTab('history',this)">
-      <span>📚</span> Reading History
-    </button>
+  <button class="nav-btn" onclick="showFaithTab('history')">
+    <span class="nav-icon">📚</span>
+    Reading History
+  </button>
 
-    <button class="nav-btn" onclick="showFaithTab('affirmations',this)">
-      <span>💬</span> Affirmations
-    </button>
+  <button class="nav-btn" onclick="showFaithTab('affirmations')">
+    <span class="nav-icon">💗</span>
+    Affirmations
+  </button>
 
-    <button class="nav-btn" onclick="showFaithTab('prayers',this)">
-      <span>🙏</span> Prayer Journal
-    </button>
+  <button class="nav-btn" onclick="showFaithTab('prayers')">
+    <span class="nav-icon">🙏</span>
+    Prayer Journal
+  </button>
 
-    <button class="nav-btn" onclick="showFaithTab('answered',this)">
-      <span>💚</span> Answered Prayers
-    </button>
+  <button class="nav-btn" onclick="showFaithTab('answered')">
+    <span class="nav-icon">🙌</span>
+    Answered Prayers
+  </button>
 
-    <button class="nav-btn" onclick="showFaithTab('gratitude',this)">
-      <span>🌷</span> Gratitude
-    </button>
+  <button class="nav-btn" onclick="showFaithTab('gratitude')">
+    <span class="nav-icon">🌷</span>
+    Gratitude
+  </button>
 
-    <button class="nav-btn" onclick="showFaithTab('lessons',this)">
-      <span>📝</span> Faith Lessons
-    </button>
-  </div>
+  <button class="nav-btn" onclick="showFaithTab('lessons')">
+    <span class="nav-icon">📝</span>
+    Faith Lessons
+  </button>
 
-  <div class="nav-section">
-    <div class="nav-title">Life</div>
+  <div class="nav-title">Dreams & Work</div>
 
-    <button class="nav-btn" onclick="showPage('goals',this)">
-      <span>🎯</span> Goals & Dreams
-    </button>
+  <button class="nav-btn" onclick="showPage('goals',this)">
+    <span class="nav-icon">🎯</span>
+    Goals & Dreams
+  </button>
 
-    <button class="nav-btn" onclick="showPage('business',this)">
-      <span>💼</span> Business
-    </button>
+  <button class="nav-btn" onclick="showPage('business',this)">
+    <span class="nav-icon">💼</span>
+    Business
+  </button>
 
-    <button class="nav-btn" onclick="showPage('collections',this)">
-      <span>🗂️</span> My Collections
-    </button>
+  <button class="nav-btn" onclick="showPage('collections',this)">
+    <span class="nav-icon">🗂️</span>
+    My Collections
+  </button>
 
-    <button class="nav-btn" onclick="openAddModal('quick')">
-      <span>➕</span> Quick Add
-    </button>
+  <div class="nav-title">Tools</div>
 
-    <button class="nav-btn" onclick="showPage('settings',this)">
-      <span>⚙️</span> Settings
-    </button>
-  </div>
+  <button class="nav-btn" onclick="openQuickAdd()">
+    <span class="nav-icon">➕</span>
+    Quick Add
+  </button>
+
+  <button class="nav-btn" onclick="showPage('settings',this)">
+    <span class="nav-icon">⚙️</span>
+    Settings
+  </button>
 
 </aside>
+
+<!-- =========================
+     MAIN
+========================= -->
 
 <main class="main">
 
 <!-- HOME -->
-<section class="page active" id="page-home">
+
+<section id="page-home" class="page active">
 
   <div class="hero">
     <h2>Welcome to Your Life Vault 🐝</h2>
-    <p>A private place for your memories, faith, dreams, goals, business and journey.</p>
+    <p>
+      Your personal place to keep your memories, faith journey, dreams,
+      goals, business ideas, prayers, journal entries, affirmations and
+      the moments you never want to forget.
+    </p>
 
     <div class="quick-buttons">
-      <button class="btn" onclick="openAddModal('memory')">📸 Add Memory</button>
-      <button class="btn" onclick="openAddModal('journal')">📔 Journal</button>
-      <button class="btn" onclick="showFaithTab('bible')">📖 Open Bible</button>
-      <button class="btn" onclick="showFaithTab('affirmations')">💬 Affirmation</button>
-      <button class="btn" onclick="openAddModal('goal')">🎯 Add Goal</button>
+      <button class="btn btn-pink" onclick="openMemoryModal()">📸 Add Memory</button>
+      <button class="btn" onclick="openJournalModal()">📔 Journal</button>
+      <button class="btn" onclick="showFaithTab('bible')">📖 Read Bible</button>
+      <button class="btn" onclick="openGoalModal()">🎯 Add Goal</button>
+      <button class="btn" onclick="openQuickAdd()">➕ Quick Add</button>
     </div>
   </div>
 
-  <div class="grid">
+  <div class="stats">
 
     <div class="stat">
-      <div class="number" id="statMemories">0</div>
-      <div class="label">Memories</div>
+      <div class="stat-icon">📸</div>
+      <div class="stat-number" id="statMemories">0</div>
+      <div class="stat-label">Memories</div>
     </div>
 
     <div class="stat">
-      <div class="number" id="statScriptures">0</div>
-      <div class="label">Saved Scriptures</div>
+      <div class="stat-icon">📔</div>
+      <div class="stat-number" id="statJournal">0</div>
+      <div class="stat-label">Journal Entries</div>
     </div>
 
     <div class="stat">
-      <div class="number" id="statAffirmations">0</div>
-      <div class="label">My Affirmations</div>
+      <div class="stat-icon">🎯</div>
+      <div class="stat-number" id="statGoals">0</div>
+      <div class="stat-label">Goals</div>
     </div>
 
     <div class="stat">
-      <div class="number" id="statGoals">0</div>
-      <div class="label">Goals</div>
-    </div>
-
-    <div class="stat">
-      <div class="number" id="statJournal">0</div>
-      <div class="label">Journal Entries</div>
-    </div>
-
-    <div class="stat">
-      <div class="number" id="statReading">0</div>
-      <div class="label">Chapters Read</div>
+      <div class="stat-icon">📖</div>
+      <div class="stat-number" id="statVerses">0</div>
+      <div class="stat-label">Bible Verses</div>
     </div>
 
   </div>
 
-  <div class="grid2" style="margin-top:18px">
-
-    <div class="card">
-      <h3>🙏 Faith Corner</h3>
-      <p class="quote" id="homeVerse">
-        Your saved scripture will appear here.
-      </p>
-      <button class="btn small" onclick="showFaithTab('bible')">Open Bible</button>
-    </div>
+  <div class="grid-2">
 
     <div class="card">
       <h3>🌷 Today's Reflection</h3>
-      <p id="homeReflection" class="muted">Take a moment to reflect on today.</p>
-      <button class="btn small" onclick="openAddModal('reflection')">Write Reflection</button>
+      <div id="homeReflection"></div>
+    </div>
+
+    <div class="card">
+      <h3>🙏 Faith Corner</h3>
+      <div id="homeFaith"></div>
     </div>
 
   </div>
 
   <div class="card">
-    <h3>💬 Today's Faith Affirmation</h3>
-    <p class="quote" id="dailyAffirmation"></p>
-    <button class="btn small" onclick="newDailyAffirmation()">🔄 New Affirmation</button>
-    <button class="btn small" onclick="saveDailyAffirmation()">⭐ Save</button>
-  </div>
-
-  <div class="card">
-    <h3>🕘 Recent Memories</h3>
-    <div id="recentMemories"></div>
+    <h3>📸 Recent Memories</h3>
+    <div id="homeRecentMemories"></div>
   </div>
 
 </section>
 
 
 <!-- MEMORIES -->
-<section class="page" id="page-memories">
 
-  <div class="header">
-    <div>
-      <h2>📸 Memories</h2>
-      <p>Keep the moments you never want to forget.</p>
-    </div>
+<section id="page-memories" class="page">
 
-    <button class="btn" onclick="openAddModal('memory')">➕ Add Memory</button>
+  <div class="page-header">
+    <h2>📸 Memories</h2>
+    <p>Keep your pictures, videos, screenshots and special moments together.</p>
   </div>
 
   <div class="card">
-    <input id="memorySearch" placeholder="Search memories..." oninput="renderMemories()">
 
-    <select id="memoryFilter" onchange="renderMemories()">
-      <option value="all">All Memories</option>
-      <option value="photo">Photos</option>
-      <option value="video">Videos</option>
-      <option value="screenshot">Screenshots</option>
-      <option value="moment">Important Moments</option>
-    </select>
+    <button class="btn btn-pink" onclick="openMemoryModal()">
+      ➕ Add Memory
+    </button>
+
+    <div style="margin-top:18px;">
+
+      <div class="search-box">
+        <input
+          id="memorySearch"
+          type="text"
+          placeholder="Search your memories..."
+          oninput="renderMemories()"
+        >
+      </div>
+
+      <div class="filters">
+
+        <button class="filter-btn active"
+          onclick="setMemoryFilter('all',this)">
+          All
+        </button>
+
+        <button class="filter-btn"
+          onclick="setMemoryFilter('image',this)">
+          📸 Photos
+        </button>
+
+        <button class="filter-btn"
+          onclick="setMemoryFilter('video',this)">
+          🎥 Videos
+        </button>
+
+        <button class="filter-btn"
+          onclick="setMemoryFilter('screenshot',this)">
+          🖥️ Screenshots
+        </button>
+
+        <button class="filter-btn"
+          onclick="setMemoryFilter('moment',this)">
+          💕 Moments
+        </button>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="memory-grid" id="memoryGrid"></div>
+  <div id="memoryGrid" class="memory-grid"></div>
 
 </section>
 
 
 <!-- JOURNAL -->
-<section class="page" id="page-journal">
 
-  <div class="header">
-    <div>
-      <h2>📔 Journal</h2>
-      <p>Your thoughts, lessons, wins and everyday life.</p>
-    </div>
+<section id="page-journal" class="page">
 
-    <button class="btn" onclick="openAddModal('journal')">➕ New Entry</button>
+  <div class="page-header">
+    <h2>📔 Journal</h2>
+    <p>Your private place for thoughts, wins, lessons and gratitude.</p>
   </div>
 
   <div class="card">
-    <h3>🌷 Daily Reflection</h3>
 
-    <label>How am I feeling?</label>
-    <input id="reflectionFeeling">
+    <button class="btn btn-pink" onclick="openJournalModal()">
+      ➕ Add Journal Entry
+    </button>
 
-    <label>What am I grateful for?</label>
-    <textarea id="reflectionGratitude"></textarea>
-
-    <label>What did I accomplish?</label>
-    <textarea id="reflectionWin"></textarea>
-
-    <label>What did I learn?</label>
-    <textarea id="reflectionLesson"></textarea>
-
-    <button class="btn" onclick="saveDailyReflection()">Save Today's Reflection</button>
   </div>
 
   <div id="journalList"></div>
@@ -898,13 +1191,12 @@ label{
 
 
 <!-- FAVORITES -->
-<section class="page" id="page-favorites">
 
-  <div class="header">
-    <div>
-      <h2>⭐ Favorites</h2>
-      <p>Your favorite memories, scriptures, affirmations and goals.</p>
-    </div>
+<section id="page-favorites" class="page">
+
+  <div class="page-header">
+    <h2>❤️ Favorites</h2>
+    <p>Your favorite memories, scriptures, goals and moments.</p>
   </div>
 
   <div id="favoritesList"></div>
@@ -913,19 +1205,25 @@ label{
 
 
 <!-- SEARCH -->
-<section class="page" id="page-search">
 
-  <div class="header">
-    <div>
-      <h2>🔎 Search Your Life Vault</h2>
-      <p>Search across your saved memories, journal, scriptures, goals and faith notes.</p>
-    </div>
+<section id="page-search" class="page">
+
+  <div class="page-header">
+    <h2>🔎 Search Your Life Vault</h2>
+    <p>Search memories, journal entries, Bible verses, goals and business notes.</p>
   </div>
 
   <div class="card">
-    <input id="globalSearchInput"
-           placeholder="Search everything..."
-           oninput="globalSearch()">
+
+    <div class="search-box">
+      <input
+        id="globalSearch"
+        type="text"
+        placeholder="Search everything..."
+        oninput="globalSearch()"
+      >
+    </div>
+
   </div>
 
   <div id="searchResults"></div>
@@ -934,74 +1232,102 @@ label{
 
 
 <!-- FAITH -->
-<section class="page" id="page-faith">
 
-  <div class="header">
-    <div>
-      <h2>🙏 Faith Journey</h2>
-      <p>Grow in God's Word and keep track of your walk with Him.</p>
-    </div>
+<section id="page-faith" class="page">
+
+  <div class="page-header">
+    <h2>🙏 Faith Journey</h2>
+    <p>Grow closer to God and keep your faith journey in one place.</p>
   </div>
 
   <div class="faith-tabs">
 
-    <button class="faith-tab active" onclick="showFaithTab('bible',this)">📖 Bible Reader</button>
+    <button class="faith-tab active" onclick="selectFaithPanel('bible',this)">
+      📖 Bible Reader
+    </button>
 
-    <button class="faith-tab" onclick="showFaithTab('scriptures',this)">⭐ My Bible Verses</button>
+    <button class="faith-tab" onclick="selectFaithPanel('verses',this)">
+      ✝️ My Bible Verses
+    </button>
 
-    <button class="faith-tab" onclick="showFaithTab('history',this)">📚 Reading History</button>
+    <button class="faith-tab" onclick="selectFaithPanel('history',this)">
+      📚 Reading History
+    </button>
 
-    <button class="faith-tab" onclick="showFaithTab('affirmations',this)">💬 Affirmations</button>
+    <button class="faith-tab" onclick="selectFaithPanel('affirmations',this)">
+      💗 Affirmations
+    </button>
 
-    <button class="faith-tab" onclick="showFaithTab('prayers',this)">🙏 Prayer Journal</button>
+    <button class="faith-tab" onclick="selectFaithPanel('prayers',this)">
+      🙏 Prayer Journal
+    </button>
 
-    <button class="faith-tab" onclick="showFaithTab('answered',this)">💚 Answered Prayers</button>
+    <button class="faith-tab" onclick="selectFaithPanel('answered',this)">
+      🙌 Answered Prayers
+    </button>
 
-    <button class="faith-tab" onclick="showFaithTab('gratitude',this)">🌷 Gratitude</button>
+    <button class="faith-tab" onclick="selectFaithPanel('gratitude',this)">
+      🌷 Gratitude
+    </button>
 
-    <button class="faith-tab" onclick="showFaithTab('lessons',this)">📝 Faith Lessons</button>
+    <button class="faith-tab" onclick="selectFaithPanel('lessons',this)">
+      📝 Faith Lessons
+    </button>
 
   </div>
 
 
-  <!-- BIBLE READER -->
-  <div id="faith-bible">
+  <!-- BIBLE -->
+
+  <div id="faith-bible" class="faith-panel active">
 
     <div class="card">
 
-      <h3>📖 Read the Bible</h3>
+      <h3>📖 Bible Reader</h3>
 
-      <p class="muted">
-        Choose a book and chapter. Your chapters read will automatically be added to your Reading History.
+      <p style="margin-bottom:15px;">
+        Choose a Bible book and chapter. When you read a chapter,
+        it is automatically recorded in your Reading History and
+        the verses are automatically saved into My Bible Verses.
       </p>
 
       <div class="bible-controls">
 
-        <div>
-          <label>Book</label>
-          <select id="bibleBook" onchange="updateChapterOptions()"></select>
-        </div>
+        <select id="bibleTranslation">
+          <option value="web">World English Bible (WEB)</option>
+          <option value="kjv">King James Version (KJV)</option>
+          <option value="asv">American Standard Version (ASV)</option>
+        </select>
 
-        <div>
-          <label>Chapter</label>
-          <select id="bibleChapter"></select>
-        </div>
+        <select id="bibleBook"></select>
 
-        <div>
-          <label>Translation</label>
-          <select id="bibleTranslation">
-            <option value="web">World English Bible (WEB)</option>
-            <option value="kjv">King James Version (KJV)</option>
-            <option value="asv">American Standard Version</option>
-          </select>
-        </div>
+        <input
+          id="bibleChapter"
+          type="number"
+          min="1"
+          value="1"
+          placeholder="Chapter"
+        >
 
       </div>
 
-      <div style="margin-top:10px">
-        <button class="btn" onclick="loadBibleChapter()">📖 Read Chapter</button>
-        <button class="btn gold" onclick="saveCurrentChapter()">📌 Save Chapter</button>
+      <div class="bible-nav">
+
+        <button class="btn btn-light" onclick="previousChapter()">
+          ◀ Previous
+        </button>
+
+        <button class="btn btn-pink" onclick="readChapter()">
+          📖 Read Chapter
+        </button>
+
+        <button class="btn btn-light" onclick="nextChapter()">
+          Next ▶
+        </button>
+
       </div>
+
+      <div id="bibleStatus" class="bible-status"></div>
 
     </div>
 
@@ -1010,94 +1336,123 @@ label{
   </div>
 
 
-  <!-- SAVED SCRIPTURES -->
-  <div id="faith-scriptures" style="display:none">
+  <!-- SAVED VERSES -->
+
+  <div id="faith-verses" class="faith-panel">
 
     <div class="card">
-      <h3>⭐ My Bible Verses</h3>
 
-      <p class="muted">
-        Every verse you save while reading the Bible automatically appears here.
+      <h3>✝️ My Bible Verses</h3>
+
+      <p>
+        Chapters you read are automatically saved here.
+        You can also save individual verses while reading.
       </p>
 
-      <input id="scriptureSearch"
-             placeholder="Search saved scriptures..."
-             oninput="renderSavedScriptures()">
     </div>
 
-    <div id="savedScripturesList"></div>
+    <div id="savedScriptures"></div>
 
   </div>
 
 
   <!-- HISTORY -->
-  <div id="faith-history" style="display:none">
+
+  <div id="faith-history" class="faith-panel">
 
     <div class="card">
       <h3>📚 Bible Reading History</h3>
-      <p class="muted">
-        Chapters you've opened are automatically recorded here.
-      </p>
+      <p>Every chapter you read is recorded here automatically.</p>
     </div>
 
-    <div id="readingHistoryList"></div>
+    <div id="readingHistory"></div>
 
   </div>
 
 
   <!-- AFFIRMATIONS -->
-  <div id="faith-affirmations" style="display:none">
+
+  <div id="faith-affirmations" class="faith-panel">
 
     <div class="card">
 
-      <h3>💬 Faith Journey Affirmations</h3>
+      <h3>💗 Faith Affirmations</h3>
 
-      <p class="muted">
-        Speak God's truth over your faith, business, health and motivation.
-        Tap ⭐ Save to add an affirmation to My Affirmations.
+      <p style="margin-bottom:15px;">
+        Speak life over your faith, business, health, motivation and future.
       </p>
 
-      <div style="margin-top:12px">
+      <div class="affirmation-filter">
 
-        <button class="btn small" onclick="filterAffirmations('all')">All</button>
-        <button class="btn small" onclick="filterAffirmations('faith')">🙏 Faith</button>
-        <button class="btn small" onclick="filterAffirmations('business')">💼 Business</button>
-        <button class="btn small" onclick="filterAffirmations('health')">💗 Health</button>
-        <button class="btn small" onclick="filterAffirmations('motivation')">🔥 Motivation</button>
-        <button class="btn small" onclick="filterAffirmations('saved')">⭐ My Affirmations</button>
+        <button class="affirmation-btn active"
+          onclick="setAffirmationCategory('all',this)">
+          All
+        </button>
+
+        <button class="affirmation-btn"
+          onclick="setAffirmationCategory('faith',this)">
+          🙏 Faith
+        </button>
+
+        <button class="affirmation-btn"
+          onclick="setAffirmationCategory('business',this)">
+          💼 Business
+        </button>
+
+        <button class="affirmation-btn"
+          onclick="setAffirmationCategory('health',this)">
+          💜 Health
+        </button>
+
+        <button class="affirmation-btn"
+          onclick="setAffirmationCategory('motivation',this)">
+          🔥 Motivation
+        </button>
+
+        <button class="affirmation-btn"
+          onclick="setAffirmationCategory('custom',this)">
+          ✨ My Affirmations
+        </button>
 
       </div>
 
-    </div>
-
-    <div class="card">
-
-      <h3>✍️ Add Your Own Affirmation</h3>
-
-      <textarea id="customAffirmation"
-        placeholder="Write your own affirmation..."></textarea>
-
-      <select id="customAffirmationCategory">
-        <option value="faith">🙏 Faith</option>
-        <option value="business">💼 Business</option>
-        <option value="health">💗 Health</option>
-        <option value="motivation">🔥 Motivation</option>
-      </select>
-
-      <button class="btn" onclick="addCustomAffirmation()">Add Affirmation</button>
+      <button class="btn btn-pink" onclick="openAffirmationModal()">
+        ➕ Add My Own Affirmation
+      </button>
 
     </div>
 
-    <div class="affirmation-grid" id="affirmationList"></div>
+    <div id="affirmationGrid" class="affirmation-grid"></div>
 
   </div>
 
 
   <!-- PRAYERS -->
-  <div id="faith-prayers" style="display:none">
 
-    <div class="header">
-      <button class="btn" onclick="openAddModal('prayer')">➕ Add Prayer</button>
+  <div id="faith-prayers" class="faith-panel">
+
+    <div class="card">
+
+      <h3>🙏 Prayer Journal</h3>
+
+      <form onsubmit="savePrayer(event)">
+
+        <div class="form-group">
+          <label>What are you praying about?</label>
+          <textarea id="prayerText" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Prayer Date</label>
+          <input id="prayerDate" type="date">
+        </div>
+
+        <button class="btn btn-pink">
+          Save Prayer
+        </button>
+
+      </form>
+
     </div>
 
     <div id="prayerList"></div>
@@ -1105,11 +1460,32 @@ label{
   </div>
 
 
-  <!-- ANSWERED -->
-  <div id="faith-answered" style="display:none">
+  <!-- ANSWERED PRAYERS -->
 
-    <div class="header">
-      <button class="btn green" onclick="openAddModal('answered')">➕ Add Answered Prayer</button>
+  <div id="faith-answered" class="faith-panel">
+
+    <div class="card">
+
+      <h3>🙌 Answered Prayers</h3>
+
+      <form onsubmit="saveAnsweredPrayer(event)">
+
+        <div class="form-group">
+          <label>What prayer was answered?</label>
+          <textarea id="answeredText" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Date</label>
+          <input id="answeredDate" type="date">
+        </div>
+
+        <button class="btn btn-pink">
+          Save Answered Prayer
+        </button>
+
+      </form>
+
     </div>
 
     <div id="answeredList"></div>
@@ -1118,10 +1494,31 @@ label{
 
 
   <!-- GRATITUDE -->
-  <div id="faith-gratitude" style="display:none">
 
-    <div class="header">
-      <button class="btn" onclick="openAddModal('gratitude')">➕ Add Gratitude</button>
+  <div id="faith-gratitude" class="faith-panel">
+
+    <div class="card">
+
+      <h3>🌷 Gratitude Journal</h3>
+
+      <form onsubmit="saveGratitude(event)">
+
+        <div class="form-group">
+          <label>What are you thankful for?</label>
+          <textarea id="gratitudeText" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Date</label>
+          <input id="gratitudeDate" type="date">
+        </div>
+
+        <button class="btn btn-pink">
+          Save Gratitude
+        </button>
+
+      </form>
+
     </div>
 
     <div id="gratitudeList"></div>
@@ -1130,10 +1527,31 @@ label{
 
 
   <!-- LESSONS -->
-  <div id="faith-lessons" style="display:none">
 
-    <div class="header">
-      <button class="btn purple" onclick="openAddModal('lesson')">➕ Add Faith Lesson</button>
+  <div id="faith-lessons" class="faith-panel">
+
+    <div class="card">
+
+      <h3>📝 Faith Lessons</h3>
+
+      <form onsubmit="saveFaithLesson(event)">
+
+        <div class="form-group">
+          <label>What did God teach you?</label>
+          <textarea id="lessonText" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Bible Reference</label>
+          <input id="lessonReference" placeholder="Example: Proverbs 3:5-6">
+        </div>
+
+        <button class="btn btn-pink">
+          Save Faith Lesson
+        </button>
+
+      </form>
+
     </div>
 
     <div id="lessonList"></div>
@@ -1144,32 +1562,77 @@ label{
 
 
 <!-- GOALS -->
-<section class="page" id="page-goals">
 
-  <div class="header">
-    <div>
-      <h2>🎯 Goals & Dreams</h2>
-      <p>Keep your dreams, goals, milestones and vision in one place.</p>
-    </div>
+<section id="page-goals" class="page">
 
-    <button class="btn" onclick="openAddModal('goal')">➕ Add Goal</button>
+  <div class="page-header">
+    <h2>🎯 Goals & Dreams</h2>
+    <p>Keep your vision, goals, milestones and dreams together.</p>
   </div>
 
-  <div id="goalsList"></div>
+  <div class="card">
+
+    <button class="btn btn-pink" onclick="openGoalModal()">
+      ➕ Add Goal
+    </button>
+
+  </div>
+
+  <div id="goalList"></div>
 
 </section>
 
 
 <!-- BUSINESS -->
-<section class="page" id="page-business">
 
-  <div class="header">
-    <div>
-      <h2>💼 Business</h2>
-      <p>Keep your business ideas, plans and milestones together.</p>
-    </div>
+<section id="page-business" class="page">
 
-    <button class="btn" onclick="openAddModal('business')">➕ Add Business Note</button>
+  <div class="page-header">
+    <h2>💼 Business</h2>
+    <p>Keep your business ideas, notes, plans and milestones together.</p>
+  </div>
+
+  <div class="card">
+
+    <form onsubmit="saveBusiness(event)">
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label>Business</label>
+
+          <select id="businessCategory">
+
+            <option>Real Estate</option>
+            <option>Bea Planner</option>
+            <option>Cornstarch</option>
+            <option>Bea Dispatch</option>
+            <option>House Inspector</option>
+            <option>Dropshipping</option>
+            <option>Other</option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Title</label>
+          <input id="businessTitle" required>
+        </div>
+
+        <div class="form-group full">
+          <label>Notes</label>
+          <textarea id="businessNotes" required></textarea>
+        </div>
+
+      </div>
+
+      <button class="btn btn-pink">
+        Save Business Note
+      </button>
+
+    </form>
+
   </div>
 
   <div id="businessList"></div>
@@ -1178,66 +1641,74 @@ label{
 
 
 <!-- COLLECTIONS -->
-<section class="page" id="page-collections">
 
-  <div class="header">
-    <div>
-      <h2>🗂️ My Collections</h2>
-      <p>Create your own personal collections.</p>
-    </div>
+<section id="page-collections" class="page">
 
-    <button class="btn" onclick="openAddModal('collection')">➕ New Collection</button>
+  <div class="page-header">
+    <h2>🗂️ My Collections</h2>
+    <p>Create your own personal collections.</p>
   </div>
 
-  <div class="grid" id="collectionsList"></div>
+  <div class="card">
+
+    <button class="btn btn-pink" onclick="openCollectionModal()">
+      ➕ Create Collection
+    </button>
+
+  </div>
+
+  <div id="collectionList" class="collection-grid"></div>
 
 </section>
 
 
 <!-- SETTINGS -->
-<section class="page" id="page-settings">
 
-  <div class="header">
-    <div>
-      <h2>⚙️ Settings</h2>
-      <p>Backup and manage your Life Vault.</p>
-    </div>
+<section id="page-settings" class="page">
+
+  <div class="page-header">
+    <h2>⚙️ Settings</h2>
+    <p>Backup and manage your Life Vault.</p>
   </div>
 
   <div class="card">
 
     <h3>💾 Backup Your Life Vault</h3>
 
-    <p class="muted">
-      Your current version stores information locally in your browser.
-      Export your backup regularly so you have a copy of your information.
+    <p style="margin-bottom:15px;">
+      Your current version stores information in your browser.
+      Export your backup regularly so you do not lose your information.
     </p>
 
-    <br>
+    <button class="btn btn-pink" onclick="exportData()">
+      ⬇️ Export Backup
+    </button>
 
-    <button class="btn" onclick="exportData()">⬇️ Export Backup</button>
-
-    <label class="btn" style="display:inline-block">
+    <label class="btn" style="display:inline-block;">
       ⬆️ Import Backup
-      <input type="file"
-             accept=".json"
-             onchange="importData(event)"
-             style="display:none">
+      <input
+        type="file"
+        id="importFile"
+        accept=".json"
+        onchange="importData(event)"
+        style="display:none;"
+      >
     </label>
 
   </div>
 
   <div class="card">
 
-    <h3>🗑️ Delete All Data</h3>
+    <h3>🗑️ Delete Everything</h3>
 
-    <p class="muted">
-      This permanently removes your local Life Vault information from this browser.
+    <p style="margin-bottom:15px;">
+      This permanently removes the information stored in this browser.
+      Export a backup first.
     </p>
 
-    <br>
-
-    <button class="btn danger" onclick="clearAllData()">Delete Everything</button>
+    <button class="btn btn-danger" onclick="deleteAllData()">
+      Delete All Life Vault Data
+    </button>
 
   </div>
 
@@ -1247,64 +1718,649 @@ label{
 </div>
 
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay">
+<!-- =========================
+     MEMORY MODAL
+========================= -->
 
-  <div class="modal">
+<div id="memoryModal" class="modal">
+
+  <div class="modal-content">
 
     <div class="modal-header">
-      <h2 id="modalTitle">Add</h2>
-      <button class="close" onclick="closeModal()">×</button>
+      <h2>📸 Add Memory</h2>
+      <button class="close" onclick="closeModal('memoryModal')">×</button>
     </div>
 
-    <div id="modalBody"></div>
+    <form onsubmit="saveMemory(event)">
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label>Memory Type</label>
+
+          <select id="memoryType">
+
+            <option value="image">📸 Photo</option>
+            <option value="video">🎥 Video</option>
+            <option value="screenshot">🖥️ Screenshot</option>
+            <option value="moment">💕 Special Moment</option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Title</label>
+          <input id="memoryTitle" placeholder="Example: My Birthday">
+        </div>
+
+        <div class="form-group full">
+
+          <label>
+            Photo or Video
+          </label>
+
+          <input
+            id="memoryMedia"
+            type="file"
+            accept="image/*,video/*"
+          >
+
+          <small style="display:block;margin-top:6px;color:#777;">
+            You can add either an image or a video.
+          </small>
+
+        </div>
+
+        <div class="form-group full">
+          <label>Description</label>
+          <textarea
+            id="memoryDescription"
+            placeholder="Write about this memory..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Tags</label>
+          <input
+            id="memoryTags"
+            placeholder="family, business, vacation"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Date</label>
+          <input id="memoryDate" type="date">
+        </div>
+
+      </div>
+
+      <label style="display:flex;gap:8px;align-items:center;margin:10px 0;">
+        <input id="memoryFavorite" type="checkbox">
+        ❤️ Add to Favorites
+      </label>
+
+      <button class="btn btn-pink">
+        Save Memory
+      </button>
+
+    </form>
 
   </div>
 
 </div>
 
-<div class="toast" id="toast"></div>
+
+<!-- =========================
+     JOURNAL MODAL
+========================= -->
+
+<div id="journalModal" class="modal">
+
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h2>📔 Daily Journal</h2>
+      <button class="close" onclick="closeModal('journalModal')">×</button>
+    </div>
+
+    <form onsubmit="saveJournal(event)">
+
+      <div class="form-group">
+        <label>How am I feeling?</label>
+        <input id="journalFeeling">
+      </div>
+
+      <div class="form-group">
+        <label>What am I grateful for?</label>
+        <textarea id="journalGratitude"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>What did I accomplish?</label>
+        <textarea id="journalWin"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>What did I learn?</label>
+        <textarea id="journalLesson"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Anything else on my heart?</label>
+        <textarea id="journalThoughts"></textarea>
+      </div>
+
+      <button class="btn btn-pink">
+        Save Journal Entry
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     GOAL MODAL
+========================= -->
+
+<div id="goalModal" class="modal">
+
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h2>🎯 Add Goal</h2>
+      <button class="close" onclick="closeModal('goalModal')">×</button>
+    </div>
+
+    <form onsubmit="saveGoal(event)">
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label>Goal</label>
+          <input id="goalTitle" required>
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+
+          <select id="goalCategory">
+
+            <option>Faith</option>
+            <option>Health</option>
+            <option>Real Estate</option>
+            <option>Business</option>
+            <option>Money</option>
+            <option>Education</option>
+            <option>Home</option>
+            <option>Personal</option>
+            <option>Other</option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Target Date</label>
+          <input id="goalDate" type="date">
+        </div>
+
+        <div class="form-group">
+          <label>Starting Progress %</label>
+          <input id="goalProgress" type="number" min="0" max="100" value="0">
+        </div>
+
+        <div class="form-group full">
+          <label>Why do I want this?</label>
+          <textarea id="goalWhy"></textarea>
+        </div>
+
+        <div class="form-group full">
+          <label>My Vision</label>
+          <textarea id="goalVision"></textarea>
+        </div>
+
+        <div class="form-group full">
+          <label>First Milestone</label>
+          <input id="goalMilestone">
+        </div>
+
+      </div>
+
+      <button class="btn btn-pink">
+        Save Goal
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     AFFIRMATION MODAL
+========================= -->
+
+<div id="affirmationModal" class="modal">
+
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h2>💗 Add Affirmation</h2>
+      <button class="close" onclick="closeModal('affirmationModal')">×</button>
+    </div>
+
+    <form onsubmit="saveCustomAffirmation(event)">
+
+      <div class="form-group">
+
+        <label>Category</label>
+
+        <select id="customAffirmationCategory">
+          <option value="faith">Faith</option>
+          <option value="business">Business</option>
+          <option value="health">Health</option>
+          <option value="motivation">Motivation</option>
+        </select>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>My Affirmation</label>
+
+        <textarea
+          id="customAffirmationText"
+          required
+          placeholder="I am..."
+        ></textarea>
+
+      </div>
+
+      <button class="btn btn-pink">
+        Save Affirmation
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     COLLECTION MODAL
+========================= -->
+
+<div id="collectionModal" class="modal">
+
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h2>🗂️ Create Collection</h2>
+      <button class="close" onclick="closeModal('collectionModal')">×</button>
+    </div>
+
+    <form onsubmit="saveCollection(event)">
+
+      <div class="form-group">
+        <label>Collection Name</label>
+        <input id="collectionName" required>
+      </div>
+
+      <div class="form-group">
+        <label>Icon</label>
+        <input id="collectionIcon" value="🗂️">
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea id="collectionDescription"></textarea>
+      </div>
+
+      <button class="btn btn-pink">
+        Create Collection
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     QUICK ADD MODAL
+========================= -->
+
+<div id="quickModal" class="modal">
+
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h2>➕ Quick Add</h2>
+      <button class="close" onclick="closeModal('quickModal')">×</button>
+    </div>
+
+    <div class="grid-2">
+
+      <button class="btn btn-pink" onclick="closeModal('quickModal');openMemoryModal()">
+        📸 Memory
+      </button>
+
+      <button class="btn" onclick="closeModal('quickModal');openJournalModal()">
+        📔 Journal
+      </button>
+
+      <button class="btn" onclick="closeModal('quickModal');openGoalModal()">
+        🎯 Goal
+      </button>
+
+      <button class="btn" onclick="closeModal('quickModal');showFaithTab('bible')">
+        📖 Bible
+      </button>
+
+      <button class="btn" onclick="closeModal('quickModal');showFaithTab('affirmations')">
+        💗 Affirmation
+      </button>
+
+      <button class="btn" onclick="closeModal('quickModal');showFaithTab('prayers')">
+        🙏 Prayer
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
 
 
 <script>
 
-/* =========================================================
+/* ============================================================
    LESSIE BEA LIFE VAULT
-   ========================================================= */
+   ============================================================ */
 
+const OLD_STORAGE_KEY = "lessie_bea_life_vault_v1";
 const STORAGE_KEY = "lessie_bea_life_vault_v2";
-
 
 let data = {
   memories:[],
   journal:[],
-  faith:[],
+  savedScriptures:[],
+  readingHistory:[],
+  prayers:[],
+  answeredPrayers:[],
+  gratitude:[],
+  faithLessons:[],
   goals:[],
   business:[],
   collections:[],
-  reflections:{},
-  savedScriptures:[],
-  readingHistory:[],
-  savedAffirmations:[],
   customAffirmations:[]
 };
 
+let memoryFilter = "all";
+let affirmationCategory = "all";
 
-function loadData(){
+
+/* ============================================================
+   DEFAULT DATA
+============================================================ */
+
+const defaultCollections = [
+  {
+    id:"default-family",
+    name:"Family Memories",
+    icon:"👨‍👩‍👧‍👦",
+    description:"Special family memories."
+  },
+  {
+    id:"default-home",
+    name:"Dream Home",
+    icon:"🏡",
+    description:"Ideas and memories about my dream home."
+  },
+  {
+    id:"default-dreams",
+    name:"My Big Dreams",
+    icon:"🌟",
+    description:"The dreams I am believing God for."
+  },
+  {
+    id:"default-love",
+    name:"Things I Love",
+    icon:"❤️",
+    description:"Things that make me smile."
+  }
+];
+
+
+/* ============================================================
+   BIBLE BOOKS
+============================================================ */
+
+const bibleBooks = [
+
+  ["GEN","Genesis",50],
+  ["EXO","Exodus",40],
+  ["LEV","Leviticus",27],
+  ["NUM","Numbers",36],
+  ["DEU","Deuteronomy",34],
+  ["JOS","Joshua",24],
+  ["JDG","Judges",21],
+  ["RUT","Ruth",4],
+  ["1SA","1 Samuel",31],
+  ["2SA","2 Samuel",24],
+  ["1KI","1 Kings",22],
+  ["2KI","2 Kings",25],
+  ["1CH","1 Chronicles",29],
+  ["2CH","2 Chronicles",36],
+  ["EZR","Ezra",10],
+  ["NEH","Nehemiah",13],
+  ["EST","Esther",10],
+  ["JOB","Job",42],
+  ["PSA","Psalms",150],
+  ["PRO","Proverbs",31],
+  ["ECC","Ecclesiastes",12],
+  ["SNG","Song of Solomon",8],
+  ["ISA","Isaiah",66],
+  ["JER","Jeremiah",52],
+  ["LAM","Lamentations",5],
+  ["EZK","Ezekiel",48],
+  ["DAN","Daniel",12],
+  ["HOS","Hosea",14],
+  ["JOL","Joel",3],
+  ["AMO","Amos",9],
+  ["OBA","Obadiah",1],
+  ["JON","Jonah",4],
+  ["MIC","Micah",7],
+  ["NAM","Nahum",3],
+  ["HAB","Habakkuk",3],
+  ["ZEP","Zephaniah",3],
+  ["HAG","Haggai",2],
+  ["ZEC","Zechariah",14],
+  ["MAL","Malachi",4],
+
+  ["MAT","Matthew",28],
+  ["MRK","Mark",16],
+  ["LUK","Luke",24],
+  ["JHN","John",21],
+  ["ACT","Acts",28],
+  ["ROM","Romans",16],
+  ["1CO","1 Corinthians",16],
+  ["2CO","2 Corinthians",13],
+  ["GAL","Galatians",6],
+  ["EPH","Ephesians",6],
+  ["PHP","Philippians",4],
+  ["COL","Colossians",4],
+  ["1TH","1 Thessalonians",5],
+  ["2TH","2 Thessalonians",3],
+  ["1TI","1 Timothy",6],
+  ["2TI","2 Timothy",4],
+  ["TIT","Titus",3],
+  ["PHM","Philemon",1],
+  ["HEB","Hebrews",13],
+  ["JAS","James",5],
+  ["1PE","1 Peter",5],
+  ["2PE","2 Peter",3],
+  ["1JN","1 John",5],
+  ["2JN","2 John",1],
+  ["3JN","3 John",1],
+  ["JUD","Jude",1],
+  ["REV","Revelation",22]
+
+];
+
+
+/* ============================================================
+   AFFIRMATIONS
+============================================================ */
+
+const affirmations = [
+
+/* FAITH */
+
+{category:"faith",text:"God is with me every step of the way."},
+{category:"faith",text:"I trust God even when I cannot see the whole path."},
+{category:"faith",text:"God's timing is working for my good."},
+{category:"faith",text:"I am growing closer to God every day."},
+{category:"faith",text:"My faith is stronger than my fear."},
+{category:"faith",text:"I choose faith over worry."},
+{category:"faith",text:"God gives me wisdom for every decision I make."},
+{category:"faith",text:"I am covered by God's grace."},
+{category:"faith",text:"I can pray about everything."},
+{category:"faith",text:"I am not walking through life alone."},
+{category:"faith",text:"God can make a way where I cannot see one."},
+{category:"faith",text:"I believe God has a purpose for my life."},
+{category:"faith",text:"I will keep trusting God while I wait."},
+{category:"faith",text:"God renews my strength."},
+{category:"faith",text:"I am becoming the woman God called me to be."},
+{category:"faith",text:"I release fear and make room for faith."},
+{category:"faith",text:"I am learning to listen for God's direction."},
+{category:"faith",text:"My prayers matter."},
+{category:"faith",text:"God hears me when I pray."},
+{category:"faith",text:"I can start again with God's help."},
+{category:"faith",text:"God's promises are bigger than my problems."},
+{category:"faith",text:"I will not give up on what God placed in my heart."},
+{category:"faith",text:"I choose obedience, patience and discipline."},
+{category:"faith",text:"God gives me peace that is greater than my circumstances."},
+{category:"faith",text:"I am thankful for what God has already done."},
+
+/* BUSINESS */
+
+{category:"business",text:"I am capable of building profitable businesses."},
+{category:"business",text:"I make wise business decisions."},
+{category:"business",text:"I am learning something valuable every day."},
+{category:"business",text:"I can create multiple streams of income."},
+{category:"business",text:"I am disciplined with my business time."},
+{category:"business",text:"I follow through on my business goals."},
+{category:"business",text:"I am becoming a better entrepreneur."},
+{category:"business",text:"I recognize opportunities and take action."},
+{category:"business",text:"I am not afraid to make the next business call."},
+{category:"business",text:"Every conversation can teach me something."},
+{category:"business",text:"I can build systems that make my businesses stronger."},
+{category:"business",text:"I am organized with my business records."},
+{category:"business",text:"I protect my time and focus on income-producing activities."},
+{category:"business",text:"I can solve problems creatively."},
+{category:"business",text:"I am building something that can serve others."},
+{category:"business",text:"I can learn what I need to learn."},
+{category:"business",text:"I take consistent action instead of waiting for perfection."},
+{category:"business",text:"My business skills improve with practice."},
+{category:"business",text:"I am persistent."},
+{category:"business",text:"I finish what I start."},
+{category:"business",text:"I can build the life I envision one step at a time."},
+{category:"business",text:"I use my resources wisely."},
+{category:"business",text:"I am becoming confident in business conversations."},
+{category:"business",text:"I can handle rejection without quitting."},
+{category:"business",text:"I keep moving forward."},
+
+/* HEALTH */
+
+{category:"health",text:"I am taking better care of myself every day."},
+{category:"health",text:"My health is worth making time for."},
+{category:"health",text:"I choose habits that support my goals."},
+{category:"health",text:"I listen to my body."},
+{category:"health",text:"I am becoming stronger and more disciplined."},
+{category:"health",text:"I celebrate progress, not perfection."},
+{category:"health",text:"I can make healthy choices one decision at a time."},
+{category:"health",text:"I drink water and take care of my body."},
+{category:"health",text:"I move my body in ways that work for me."},
+{category:"health",text:"I am proud of the effort I am making."},
+{category:"health",text:"I deserve rest and recovery."},
+{category:"health",text:"I can stay consistent even when motivation is low."},
+{category:"health",text:"I am building healthy routines."},
+{category:"health",text:"I choose patience with myself."},
+{category:"health",text:"Small healthy choices add up."},
+{category:"health",text:"I am committed to my wellness journey."},
+{category:"health",text:"I take my goals seriously without being hard on myself."},
+{category:"health",text:"I am learning what works best for me."},
+{category:"health",text:"I keep going."},
+{category:"health",text:"My future self will thank me for today's choices."},
+
+/* MOTIVATION */
+
+{category:"motivation",text:"I can do hard things."},
+{category:"motivation",text:"I do not have to feel ready to begin."},
+{category:"motivation",text:"I take the next step."},
+{category:"motivation",text:"I refuse to let fear make my decisions."},
+{category:"motivation",text:"I am stronger than the obstacle in front of me."},
+{category:"motivation",text:"I can start over as many times as necessary."},
+{category:"motivation",text:"I keep promises to myself."},
+{category:"motivation",text:"I am disciplined even when I am not motivated."},
+{category:"motivation",text:"I finish today's important tasks."},
+{category:"motivation",text:"Progress is still progress."},
+{category:"motivation",text:"I am becoming more focused every day."},
+{category:"motivation",text:"I choose action over excuses."},
+{category:"motivation",text:"I can handle one step at a time."},
+{category:"motivation",text:"I am capable of learning new things."},
+{category:"motivation",text:"I am not behind; I am building."},
+{category:"motivation",text:"I will not quit because today is difficult."},
+{category:"motivation",text:"I am proud of myself for continuing."},
+{category:"motivation",text:"I have permission to grow at my own pace."},
+{category:"motivation",text:"I can turn setbacks into lessons."},
+{category:"motivation",text:"My actions today shape my tomorrow."},
+{category:"motivation",text:"I will focus on what I can control."},
+{category:"motivation",text:"I am creating a life I can be proud of."},
+{category:"motivation",text:"I have more possibilities than I can see right now."},
+{category:"motivation",text:"I will keep showing up."},
+{category:"motivation",text:"I am not quitting on myself."}
+
+];
+
+
+/* ============================================================
+   INITIALIZE
+============================================================ */
+
+function initializeData(){
 
   try{
 
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const current = localStorage.getItem(STORAGE_KEY);
 
-    if(saved){
+    if(current){
+      data = normalizeData(JSON.parse(current));
+      return;
+    }
 
-      const parsed = JSON.parse(saved);
+    const old = localStorage.getItem(OLD_STORAGE_KEY);
 
-      data = {
-        ...data,
-        ...parsed
-      };
+    if(old){
 
+      data = normalizeData(JSON.parse(old));
+
+      saveData();
+
+      showToast("Your existing Life Vault data was preserved.");
+
+      return;
     }
 
   }catch(error){
@@ -1313,84 +2369,88 @@ function loadData(){
 
   }
 
+  data.collections = [...defaultCollections];
+
+  saveData();
+}
+
+
+function normalizeData(obj){
+
+  obj = obj || {};
+
+  return {
+
+    memories:Array.isArray(obj.memories) ? obj.memories : [],
+
+    journal:Array.isArray(obj.journal) ? obj.journal : [],
+
+    savedScriptures:Array.isArray(obj.savedScriptures)
+      ? obj.savedScriptures
+      : [],
+
+    readingHistory:Array.isArray(obj.readingHistory)
+      ? obj.readingHistory
+      : [],
+
+    prayers:Array.isArray(obj.prayers)
+      ? obj.prayers
+      : [],
+
+    answeredPrayers:Array.isArray(obj.answeredPrayers)
+      ? obj.answeredPrayers
+      : [],
+
+    gratitude:Array.isArray(obj.gratitude)
+      ? obj.gratitude
+      : [],
+
+    faithLessons:Array.isArray(obj.faithLessons)
+      ? obj.faithLessons
+      : [],
+
+    goals:Array.isArray(obj.goals)
+      ? obj.goals
+      : [],
+
+    business:Array.isArray(obj.business)
+      ? obj.business
+      : [],
+
+    collections:Array.isArray(obj.collections) && obj.collections.length
+      ? obj.collections
+      : [...defaultCollections],
+
+    customAffirmations:Array.isArray(obj.customAffirmations)
+      ? obj.customAffirmations
+      : []
+
+  };
+
 }
 
 
 function saveData(){
 
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
-
-}
-
-
-function id(){
-
-  return Date.now().toString(36)+Math.random().toString(36).slice(2);
-
-}
-
-
-function today(){
-
-  return new Date().toISOString().slice(0,10);
-
-}
-
-
-function formatDate(date){
-
-  if(!date) return "";
-
-  return new Date(date+"T12:00:00").toLocaleDateString(
-    undefined,
-    {
-      month:"long",
-      day:"numeric",
-      year:"numeric"
-    }
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(data)
   );
 
 }
 
 
-function escapeHTML(str){
+function uid(){
 
-  if(str===undefined || str===null) return "";
-
-  return String(str)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  return Date.now().toString(36) +
+    Math.random().toString(36).slice(2);
 
 }
 
 
-function showToast(message){
-
-  const toast = document.getElementById("toast");
-
-  toast.textContent = message;
-  toast.classList.add("show");
-
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  },2500);
-
-}
-
-
-/* =========================================================
+/* ============================================================
    NAVIGATION
-   ========================================================= */
-
-function toggleSidebar(){
-
-  document.getElementById("sidebar").classList.toggle("open");
-
-}
-
+============================================================ */
 
 function showPage(page,button){
 
@@ -1412,439 +2472,234 @@ function showPage(page,button){
     button.classList.add("active");
   }
 
-  document.getElementById("sidebar").classList.remove("open");
-
-  window.scrollTo(0,0);
-
   renderAll();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
 
-function showFaithTab(tab,button){
+function showFaithTab(tab){
 
   showPage("faith");
 
-  document.querySelectorAll(".faith-tab").forEach(b=>{
-    b.classList.remove("active");
+  selectFaithPanel(tab);
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
   });
+
+}
+
+
+function selectFaithPanel(tab,button){
+
+  document.querySelectorAll(".faith-panel").forEach(panel=>{
+    panel.classList.remove("active");
+  });
+
+  document.querySelectorAll(".faith-tab").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  const panel = document.getElementById("faith-"+tab);
+
+  if(panel){
+    panel.classList.add("active");
+  }
 
   if(button){
     button.classList.add("active");
+  }else{
+
+    document.querySelectorAll(".faith-tab").forEach(btn=>{
+
+      const text = btn.textContent.toLowerCase();
+
+      if(
+        (tab==="bible" && text.includes("bible reader")) ||
+        (tab==="verses" && text.includes("my bible")) ||
+        (tab==="history" && text.includes("reading history")) ||
+        (tab==="affirmations" && text.includes("affirmations")) ||
+        (tab==="prayers" && text.includes("prayer journal")) ||
+        (tab==="answered" && text.includes("answered")) ||
+        (tab==="gratitude" && text.includes("gratitude")) ||
+        (tab==="lessons" && text.includes("faith lessons"))
+      ){
+        btn.classList.add("active");
+      }
+
+    });
+
   }
-
-  document.querySelectorAll("[id^='faith-']").forEach(el=>{
-    el.style.display="none";
-  });
-
-  const target = document.getElementById("faith-"+tab);
-
-  if(target){
-    target.style.display="block";
-  }
-
-  if(tab==="bible"){
-    initializeBible();
-  }
-
-  if(tab==="scriptures"){
-    renderSavedScriptures();
-  }
-
-  if(tab==="history"){
-    renderReadingHistory();
-  }
-
-  if(tab==="affirmations"){
-    renderAffirmations("all");
-  }
-
-  if(tab==="prayers"){
-    renderFaithType("prayer","prayerList");
-  }
-
-  if(tab==="answered"){
-    renderFaithType("answered","answeredList");
-  }
-
-  if(tab==="gratitude"){
-    renderFaithType("gratitude","gratitudeList");
-  }
-
-  if(tab==="lessons"){
-    renderFaithType("lesson","lessonList");
-  }
-
-  document.getElementById("sidebar").classList.remove("open");
-
-  window.scrollTo(0,0);
 
 }
 
 
-/* =========================================================
+/* ============================================================
    MODALS
-   ========================================================= */
+============================================================ */
 
-function openAddModal(type){
+function openModal(id){
 
-  const overlay = document.getElementById("modalOverlay");
-  const title = document.getElementById("modalTitle");
-  const body = document.getElementById("modalBody");
-
-  overlay.classList.add("show");
-
-  let html="";
-
-  if(type==="memory"){
-
-    title.textContent="📸 Add Memory";
-
-    html=`
-
-      <label>Title</label>
-      <input id="mTitle" placeholder="Memory title">
-
-      <label>Type</label>
-      <select id="mType">
-        <option value="photo">Photo</option>
-        <option value="video">Video</option>
-        <option value="screenshot">Screenshot</option>
-        <option value="moment">Important Moment</option>
-      </select>
-
-      <label>Date</label>
-      <input id="mDate" type="date" value="${today()}">
-
-      <label>Photo</label>
-      <input id="mImage" type="file" accept="image/*">
-
-      <label>Description</label>
-      <textarea id="mDescription"></textarea>
-
-      <label>Tags</label>
-      <input id="mTags" placeholder="family, business, home...">
-
-      <label>
-        <input id="mFavorite" type="checkbox" style="width:auto">
-        ⭐ Favorite
-      </label>
-
-      <button class="btn" onclick="saveMemory()">Save Memory</button>
-
-    `;
-
-  }
-
-
-  if(type==="journal"){
-
-    title.textContent="📔 New Journal Entry";
-
-    html=`
-
-      <label>Date</label>
-      <input id="jDate" type="date" value="${today()}">
-
-      <label>Title</label>
-      <input id="jTitle">
-
-      <label>How am I feeling?</label>
-      <textarea id="jFeeling"></textarea>
-
-      <label>What happened today?</label>
-      <textarea id="jBody"></textarea>
-
-      <label>What am I grateful for?</label>
-      <textarea id="jGratitude"></textarea>
-
-      <label>What did I learn?</label>
-      <textarea id="jLesson"></textarea>
-
-      <button class="btn" onclick="saveJournal()">Save Journal Entry</button>
-
-    `;
-
-  }
-
-
-  if(type==="goal"){
-
-    title.textContent="🎯 Add Goal";
-
-    html=`
-
-      <label>Goal</label>
-      <input id="gTitle">
-
-      <label>Category</label>
-      <select id="gCategory">
-        <option>Faith</option>
-        <option>Health</option>
-        <option>Business</option>
-        <option>Financial</option>
-        <option>Personal</option>
-        <option>Education</option>
-        <option>Home</option>
-        <option>Other</option>
-      </select>
-
-      <label>Target Date</label>
-      <input id="gDate" type="date">
-
-      <label>Why is this important?</label>
-      <textarea id="gWhy"></textarea>
-
-      <label>Vision</label>
-      <textarea id="gVision"></textarea>
-
-      <label>First Milestone</label>
-      <input id="gMilestone">
-
-      <button class="btn" onclick="saveGoal()">Save Goal</button>
-
-    `;
-
-  }
-
-
-  if(type==="business"){
-
-    title.textContent="💼 Business Note";
-
-    html=`
-
-      <label>Business</label>
-      <select id="bCategory">
-        <option>Real Estate</option>
-        <option>Bea Planner</option>
-        <option>Cornstarch</option>
-        <option>Bea Dispatch</option>
-        <option>House Inspector</option>
-        <option>Dropshipping</option>
-        <option>Other</option>
-      </select>
-
-      <label>Title</label>
-      <input id="bTitle">
-
-      <label>Notes</label>
-      <textarea id="bNotes"></textarea>
-
-      <button class="btn" onclick="saveBusiness()">Save Business Note</button>
-
-    `;
-
-  }
-
-
-  if(type==="collection"){
-
-    title.textContent="🗂️ New Collection";
-
-    html=`
-
-      <label>Collection Name</label>
-      <input id="cName">
-
-      <label>Icon</label>
-      <input id="cIcon" value="🗂️">
-
-      <label>Description</label>
-      <textarea id="cDescription"></textarea>
-
-      <button class="btn" onclick="saveCollection()">Create Collection</button>
-
-    `;
-
-  }
-
-
-  if(type==="reflection"){
-
-    title.textContent="🌷 Today's Reflection";
-
-    html=`
-
-      <label>How am I feeling?</label>
-      <textarea id="rFeeling"></textarea>
-
-      <label>What am I grateful for?</label>
-      <textarea id="rGratitude"></textarea>
-
-      <label>What did I accomplish?</label>
-      <textarea id="rWin"></textarea>
-
-      <label>What did I learn?</label>
-      <textarea id="rLesson"></textarea>
-
-      <button class="btn" onclick="saveReflectionFromModal()">Save Reflection</button>
-
-    `;
-
-  }
-
-
-  if(type==="prayer"){
-
-    title.textContent="🙏 Add Prayer";
-
-    html=`
-
-      <label>Prayer</label>
-      <textarea id="fText" placeholder="Write your prayer..."></textarea>
-
-      <label>Scripture or Prayer Focus</label>
-      <input id="fReference">
-
-      <button class="btn" onclick="saveFaith('prayer')">Save Prayer</button>
-
-    `;
-
-  }
-
-
-  if(type==="answered"){
-
-    title.textContent="💚 Answered Prayer";
-
-    html=`
-
-      <label>What did God answer?</label>
-      <textarea id="fText"></textarea>
-
-      <label>Date</label>
-      <input id="fDate" type="date" value="${today()}">
-
-      <button class="btn green" onclick="saveFaith('answered')">Save Answered Prayer</button>
-
-    `;
-
-  }
-
-
-  if(type==="gratitude"){
-
-    title.textContent="🌷 Gratitude";
-
-    html=`
-
-      <label>What are you grateful for?</label>
-      <textarea id="fText"></textarea>
-
-      <button class="btn" onclick="saveFaith('gratitude')">Save Gratitude</button>
-
-    `;
-
-  }
-
-
-  if(type==="lesson"){
-
-    title.textContent="📝 Faith Lesson";
-
-    html=`
-
-      <label>Title</label>
-      <input id="fTitle">
-
-      <label>What did I learn?</label>
-      <textarea id="fText"></textarea>
-
-      <label>Scripture</label>
-      <input id="fReference">
-
-      <button class="btn purple" onclick="saveFaith('lesson')">Save Faith Lesson</button>
-
-    `;
-
-  }
-
-
-  if(type==="quick"){
-
-    title.textContent="➕ Quick Add";
-
-    html=`
-
-      <p>What would you like to add?</p>
-
-      <br>
-
-      <button class="btn" onclick="closeModal();openAddModal('memory')">📸 Memory</button>
-
-      <button class="btn" onclick="closeModal();openAddModal('journal')">📔 Journal</button>
-
-      <button class="btn" onclick="closeModal();openAddModal('goal')">🎯 Goal</button>
-
-      <button class="btn" onclick="closeModal();openAddModal('business')">💼 Business</button>
-
-      <button class="btn" onclick="closeModal();showFaithTab('prayers')">🙏 Prayer</button>
-
-      <button class="btn" onclick="closeModal();showFaithTab('gratitude')">🌷 Gratitude</button>
-
-    `;
-
-  }
-
-
-  body.innerHTML=html;
+  document.getElementById(id).classList.add("show");
 
 }
 
 
-function closeModal(){
+function closeModal(id){
 
-  document.getElementById("modalOverlay").classList.remove("show");
+  document.getElementById(id).classList.remove("show");
 
 }
 
 
-document.getElementById("modalOverlay").addEventListener("click",function(e){
+function openMemoryModal(){
 
-  if(e.target===this){
-    closeModal();
-  }
+  document.getElementById("memoryTitle").value="";
+  document.getElementById("memoryDescription").value="";
+  document.getElementById("memoryTags").value="";
+  document.getElementById("memoryDate").value=getToday();
+  document.getElementById("memoryFavorite").checked=false;
+  document.getElementById("memoryMedia").value="";
 
-});
+  openModal("memoryModal");
+
+}
 
 
-/* =========================================================
-   MEMORIES
-   ========================================================= */
+function openJournalModal(){
 
-function saveMemory(){
+  document.getElementById("journalFeeling").value="";
+  document.getElementById("journalGratitude").value="";
+  document.getElementById("journalWin").value="";
+  document.getElementById("journalLesson").value="";
+  document.getElementById("journalThoughts").value="";
 
-  const file = document.getElementById("mImage").files[0];
+  openModal("journalModal");
+
+}
+
+
+function openGoalModal(){
+
+  document.getElementById("goalTitle").value="";
+  document.getElementById("goalDate").value="";
+  document.getElementById("goalProgress").value=0;
+  document.getElementById("goalWhy").value="";
+  document.getElementById("goalVision").value="";
+  document.getElementById("goalMilestone").value="";
+
+  openModal("goalModal");
+
+}
+
+
+function openAffirmationModal(){
+
+  document.getElementById("customAffirmationText").value="";
+
+  openModal("affirmationModal");
+
+}
+
+
+function openCollectionModal(){
+
+  document.getElementById("collectionName").value="";
+  document.getElementById("collectionIcon").value="🗂️";
+  document.getElementById("collectionDescription").value="";
+
+  openModal("collectionModal");
+
+}
+
+
+function openQuickAdd(){
+
+  openModal("quickModal");
+
+}
+
+
+function getToday(){
+
+  const d = new Date();
+
+  return d.toISOString().split("T")[0];
+
+}
+
+
+/* ============================================================
+   MEMORY
+============================================================ */
+
+function saveMemory(event){
+
+  event.preventDefault();
+
+  const fileInput = document.getElementById("memoryMedia");
+
+  const file = fileInput.files[0];
 
   const memory = {
 
-    id:id(),
-    type:document.getElementById("mType").value,
-    title:document.getElementById("mTitle").value || "Untitled Memory",
-    date:document.getElementById("mDate").value || today(),
-    description:document.getElementById("mDescription").value,
-    tags:document.getElementById("mTags").value,
-    favorite:document.getElementById("mFavorite").checked,
-    image:""
+    id:uid(),
+
+    type:document.getElementById("memoryType").value,
+
+    title:document.getElementById("memoryTitle").value.trim(),
+
+    description:document.getElementById("memoryDescription").value.trim(),
+
+    tags:document.getElementById("memoryTags").value
+      .split(",")
+      .map(x=>x.trim())
+      .filter(Boolean),
+
+    date:document.getElementById("memoryDate").value || getToday(),
+
+    favorite:document.getElementById("memoryFavorite").checked,
+
+    media:"",
+
+    mediaType:"",
+
+    createdAt:new Date().toISOString()
 
   };
+
 
   if(file){
 
     const reader = new FileReader();
 
-    reader.onload=function(e){
+    reader.onload = function(e){
 
-      memory.image=e.target.result;
+      memory.media = e.target.result;
+
+      memory.mediaType = file.type.startsWith("video/")
+        ? "video"
+        : "image";
 
       data.memories.unshift(memory);
 
       saveData();
-      closeModal();
+
+      closeModal("memoryModal");
+
       renderAll();
 
-      showToast("📸 Memory saved!");
+      showToast(
+        memory.mediaType === "video"
+          ? "🎥 Video memory saved!"
+          : "📸 Photo memory saved!"
+      );
 
     };
 
@@ -1855,7 +2710,9 @@ function saveMemory(){
     data.memories.unshift(memory);
 
     saveData();
-    closeModal();
+
+    closeModal("memoryModal");
+
     renderAll();
 
     showToast("📸 Memory saved!");
@@ -1865,1137 +2722,99 @@ function saveMemory(){
 }
 
 
+function setMemoryFilter(filter,button){
+
+  memoryFilter=filter;
+
+  document.querySelectorAll(".filter-btn").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  if(button){
+    button.classList.add("active");
+  }
+
+  renderMemories();
+
+}
+
+
+function getMemoryMedia(memory){
+
+  const media = memory.media || memory.image || "";
+
+  let type = memory.mediaType || "";
+
+  if(!type && memory.image){
+    type="image";
+  }
+
+  return {
+    media,
+    type
+  };
+
+}
+
+
 function renderMemories(){
 
-  const grid = document.getElementById("memoryGrid");
+  const container=document.getElementById("memoryGrid");
 
-  if(!grid) return;
+  if(!container){
+    return;
+  }
 
-  const search =
-    (document.getElementById("memorySearch")?.value || "")
+  const search=(document.getElementById("memorySearch")?.value || "")
     .toLowerCase();
 
-  const filter =
-    document.getElementById("memoryFilter")?.value || "all";
+  let memories=[...data.memories];
 
-  let list = data.memories.filter(m=>{
+  if(memoryFilter!=="all"){
 
-    const matchesFilter =
-      filter==="all" || m.type===filter;
+    memories=memories.filter(memory=>{
 
-    const text =
-      `${m.title} ${m.description} ${m.tags}`.toLowerCase();
+      const media=getMemoryMedia(memory);
 
-    return matchesFilter && text.includes(search);
+      if(memoryFilter==="image"){
+        return media.type==="image";
+      }
 
-  });
+      if(memoryFilter==="video"){
+        return media.type==="video";
+      }
 
-  if(!list.length){
-
-    grid.innerHTML=`<div class="empty">📸 No memories found.</div>`;
-    return;
-
-  }
-
-  grid.innerHTML=list.map(m=>`
-
-    <div class="memory-card">
-
-      ${m.image ? `<img src="${m.image}" alt="">` : `<div style="height:190px;background:#ffe7ee;display:flex;align-items:center;justify-content:center;font-size:60px">${memoryIcon(m.type)}</div>`}
-
-      <div class="memory-content">
-
-        <h3>
-          ${escapeHTML(m.title)}
-          ${m.favorite ? '<span class="favorite">★</span>' : ''}
-        </h3>
-
-        <div class="muted">${formatDate(m.date)}</div>
-
-        <p style="margin-top:8px">
-          ${escapeHTML(m.description)}
-        </p>
-
-        <div style="margin-top:8px">
-          ${escapeHTML(m.tags || "")
-            .split(",")
-            .filter(Boolean)
-            .map(t=>`<span class="tag">${escapeHTML(t.trim())}</span>`)
-            .join("")}
-        </div>
-
-        <button class="btn small danger"
-          onclick="deleteItem('memories','${m.id}')">
-          Delete
-        </button>
-
-      </div>
-
-    </div>
-
-  `).join("");
-
-}
-
-
-function memoryIcon(type){
-
-  if(type==="photo") return "📸";
-  if(type==="video") return "🎥";
-  if(type==="screenshot") return "📱";
-  return "❤️";
-
-}
-
-
-/* =========================================================
-   JOURNAL
-   ========================================================= */
-
-function saveJournal(){
-
-  const entry={
-
-    id:id(),
-    type:"journal",
-    date:document.getElementById("jDate").value || today(),
-    title:document.getElementById("jTitle").value || "Journal Entry",
-    feeling:document.getElementById("jFeeling").value,
-    body:document.getElementById("jBody").value,
-    gratitude:document.getElementById("jGratitude").value,
-    lesson:document.getElementById("jLesson").value,
-    favorite:false
-
-  };
-
-  data.journal.unshift(entry);
-
-  saveData();
-  closeModal();
-  renderAll();
-
-  showToast("📔 Journal saved!");
-
-}
-
-
-function renderJournal(){
-
-  const list=document.getElementById("journalList");
-
-  if(!list) return;
-
-  if(!data.journal.length){
-
-    list.innerHTML=`<div class="card empty">📔 Your journal is empty.</div>`;
-    return;
-
-  }
-
-  list.innerHTML=data.journal.map(j=>`
-
-    <div class="journal-entry">
-
-      <h3>${escapeHTML(j.title)}</h3>
-
-      <div class="muted">${formatDate(j.date)}</div>
-
-      <p style="margin-top:10px"><strong>Feeling:</strong><br>${escapeHTML(j.feeling)}</p>
-
-      <p style="margin-top:10px"><strong>Today:</strong><br>${escapeHTML(j.body)}</p>
-
-      <p style="margin-top:10px"><strong>Grateful:</strong><br>${escapeHTML(j.gratitude)}</p>
-
-      <p style="margin-top:10px"><strong>Lesson:</strong><br>${escapeHTML(j.lesson)}</p>
-
-      <button class="btn small danger"
-        onclick="deleteItem('journal','${j.id}')">
-        Delete
-      </button>
-
-    </div>
-
-  `).join("");
-
-}
-
-
-/* =========================================================
-   REFLECTION
-   ========================================================= */
-
-function saveDailyReflection(){
-
-  const reflection={
-
-    feeling:document.getElementById("reflectionFeeling")?.value || "",
-    gratitude:document.getElementById("reflectionGratitude")?.value || "",
-    win:document.getElementById("reflectionWin")?.value || "",
-    lesson:document.getElementById("reflectionLesson")?.value || ""
-
-  };
-
-  data.reflections[today()]=reflection;
-
-  saveData();
-
-  renderAll();
-
-  showToast("🌷 Reflection saved!");
-
-}
-
-
-function saveReflectionFromModal(){
-
-  const reflection={
-
-    feeling:document.getElementById("rFeeling").value,
-    gratitude:document.getElementById("rGratitude").value,
-    win:document.getElementById("rWin").value,
-    lesson:document.getElementById("rLesson").value
-
-  };
-
-  data.reflections[today()]=reflection;
-
-  saveData();
-  closeModal();
-  renderAll();
-
-  showToast("🌷 Reflection saved!");
-
-}
-
-
-/* =========================================================
-   FAITH STORAGE
-   ========================================================= */
-
-function saveFaith(type){
-
-  const item={
-
-    id:id(),
-    type:type,
-    date:document.getElementById("fDate")?.value || today(),
-    title:document.getElementById("fTitle")?.value || "",
-    text:document.getElementById("fText")?.value || "",
-    reference:document.getElementById("fReference")?.value || "",
-    favorite:false
-
-  };
-
-  data.faith.unshift(item);
-
-  saveData();
-  closeModal();
-  renderAll();
-
-  showToast("🙏 Saved to your Faith Journey!");
-
-}
-
-
-function renderFaithType(type,containerId){
-
-  const container=document.getElementById(containerId);
-
-  if(!container) return;
-
-  const list=data.faith.filter(x=>x.type===type);
-
-  if(!list.length){
-
-    container.innerHTML=`
-      <div class="card empty">
-        Nothing here yet. Start adding to your Faith Journey. 🙏
-      </div>
-    `;
-
-    return;
-
-  }
-
-  container.innerHTML=list.map(x=>`
-
-    <div class="card">
-
-      <h3>
-        ${escapeHTML(x.title || faithTitle(type))}
-        ${x.favorite ? '<span class="favorite">★</span>' : ''}
-      </h3>
-
-      <div class="muted">${formatDate(x.date)}</div>
-
-      <p style="margin-top:12px;line-height:1.7">
-        ${escapeHTML(x.text)}
-      </p>
-
-      ${x.reference ? `
-        <p style="margin-top:10px">
-          <strong>📖 ${escapeHTML(x.reference)}</strong>
-        </p>
-      ` : ""}
-
-      <button class="btn small danger"
-        onclick="deleteItem('faith','${x.id}')">
-        Delete
-      </button>
-
-    </div>
-
-  `).join("");
-
-}
-
-
-function faithTitle(type){
-
-  if(type==="prayer") return "Prayer";
-  if(type==="answered") return "Answered Prayer";
-  if(type==="gratitude") return "Gratitude";
-  if(type==="lesson") return "Faith Lesson";
-
-  return "Faith";
-
-}
-
-
-/* =========================================================
-   BIBLE
-   ========================================================= */
-
-const bibleBooks=[
-
-  ["Genesis","GEN",50],
-  ["Exodus","EXO",40],
-  ["Leviticus","LEV",27],
-  ["Numbers","NUM",36],
-  ["Deuteronomy","DEU",34],
-  ["Joshua","JOS",24],
-  ["Judges","JDG",21],
-  ["Ruth","RUT",4],
-  ["1 Samuel","1SA",31],
-  ["2 Samuel","2SA",24],
-  ["1 Kings","1KI",22],
-  ["2 Kings","2KI",25],
-  ["1 Chronicles","1CH",29],
-  ["2 Chronicles","2CH",36],
-  ["Ezra","EZR",10],
-  ["Nehemiah","NEH",13],
-  ["Esther","EST",10],
-  ["Job","JOB",42],
-  ["Psalms","PSA",150],
-  ["Proverbs","PRO",31],
-  ["Ecclesiastes","ECC",12],
-  ["Song of Solomon","SNG",8],
-  ["Isaiah","ISA",66],
-  ["Jeremiah","JER",52],
-  ["Lamentations","LAM",5],
-  ["Ezekiel","EZK",48],
-  ["Daniel","DAN",12],
-  ["Hosea","HOS",14],
-  ["Joel","JOL",3],
-  ["Amos","AMO",9],
-  ["Obadiah","OBA",1],
-  ["Jonah","JON",4],
-  ["Micah","MIC",7],
-  ["Nahum","NAH",3],
-  ["Habakkuk","HAB",3],
-  ["Zephaniah","ZEP",3],
-  ["Haggai","HAG",2],
-  ["Zechariah","ZEC",14],
-  ["Malachi","MAL",4],
-
-  ["Matthew","MAT",28],
-  ["Mark","MRK",16],
-  ["Luke","LUK",24],
-  ["John","JHN",21],
-  ["Acts","ACT",28],
-  ["Romans","ROM",16],
-  ["1 Corinthians","1CO",16],
-  ["2 Corinthians","2CO",13],
-  ["Galatians","GAL",6],
-  ["Ephesians","EPH",6],
-  ["Philippians","PHP",4],
-  ["Colossians","COL",4],
-  ["1 Thessalonians","1TH",5],
-  ["2 Thessalonians","2TH",3],
-  ["1 Timothy","1TI",6],
-  ["2 Timothy","2TI",4],
-  ["Titus","TIT",3],
-  ["Philemon","PHM",1],
-  ["Hebrews","HEB",13],
-  ["James","JAS",5],
-  ["1 Peter","1PE",5],
-  ["2 Peter","2PE",3],
-  ["1 John","1JN",5],
-  ["2 John","2JN",1],
-  ["3 John","3JN",1],
-  ["Jude","JUD",1],
-  ["Revelation","REV",22]
-
-];
-
-
-let currentBibleChapter=null;
-
-
-function initializeBible(){
-
-  const bookSelect=document.getElementById("bibleBook");
-
-  if(!bookSelect) return;
-
-  if(bookSelect.options.length===0){
-
-    bookSelect.innerHTML=bibleBooks.map((b,i)=>
-      `<option value="${i}">${b[0]}</option>`
-    ).join("");
-
-  }
-
-  updateChapterOptions();
-
-}
-
-
-function updateChapterOptions(){
-
-  const index=parseInt(
-    document.getElementById("bibleBook").value || "0"
-  );
-
-  const book=bibleBooks[index];
-
-  const chapterSelect=document.getElementById("bibleChapter");
-
-  chapterSelect.innerHTML="";
-
-  for(let i=1;i<=book[2];i++){
-
-    chapterSelect.innerHTML+=`
-      <option value="${i}">${i}</option>
-    `;
-
-  }
-
-}
-
-
-async function loadBibleChapter(){
-
-  initializeBible();
-
-  const index=parseInt(
-    document.getElementById("bibleBook").value
-  );
-
-  const chapter=parseInt(
-    document.getElementById("bibleChapter").value
-  );
-
-  const translation=
-    document.getElementById("bibleTranslation").value;
-
-  const book=bibleBooks[index];
-
-  const reader=document.getElementById("bibleReader");
-
-  reader.innerHTML=`
-    <div class="card">
-      <div class="empty">
-        📖 Loading ${escapeHTML(book[0])} ${chapter}...
-      </div>
-    </div>
-  `;
-
-  try{
-
-    const url=
-      `https://bible-api.com/data/${translation}/${book[1]}/${chapter}`;
-
-    const response=await fetch(url);
-
-    if(!response.ok){
-      throw new Error("Bible request failed");
-    }
-
-    const result=await response.json();
-
-    currentBibleChapter={
-      bookName:book[0],
-      bookId:book[1],
-      chapter:chapter,
-      translation:translation,
-      verses:result.verses || []
-    };
-
-    recordReading(
-      book[0],
-      book[1],
-      chapter,
-      translation
-    );
-
-    renderBibleChapter();
-
-  }catch(error){
-
-    console.error(error);
-
-    reader.innerHTML=`
-
-      <div class="card">
-
-        <div class="empty">
-
-          <h3>📖 Bible could not be loaded</h3>
-
-          <p style="margin-top:10px">
-            Please check your internet connection and try again.
-          </p>
-
-          <button class="btn" onclick="loadBibleChapter()">
-            Try Again
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-  }
-
-}
-
-
-function renderBibleChapter(){
-
-  const reader=document.getElementById("bibleReader");
-
-  if(!currentBibleChapter){
-    return;
-  }
-
-  const c=currentBibleChapter;
-
-  reader.innerHTML=`
-
-    <div class="bible-reader">
-
-      <div class="bible-title">
-
-        <h2>
-          ${escapeHTML(c.bookName)} ${c.chapter}
-        </h2>
-
-        <p>
-          ${escapeHTML(c.translation.toUpperCase())}
-          · <span class="reading-badge">✓ Chapter Read</span>
-        </p>
-
-      </div>
-
-      <div>
-
-        ${c.verses.map(v=>`
-
-          <div class="verse">
-
-            <span class="verse-number">
-              ${escapeHTML(v.verse)}
-            </span>
-
-            <span>
-              ${escapeHTML(v.text)}
-            </span>
-
-            <span class="verse-actions">
-
-              <button
-                class="verse-save"
-                onclick="saveVerseFromReader(${v.verse})">
-                ⭐ Save
-              </button>
-
-            </span>
-
-          </div>
-
-        `).join("")}
-
-      </div>
-
-      <div class="bible-navigation">
-
-        <button class="btn"
-          onclick="previousBibleChapter()">
-          ← Previous
-        </button>
-
-        <button class="btn gold"
-          onclick="saveCurrentChapter()">
-          📌 Save Chapter
-        </button>
-
-        <button class="btn"
-          onclick="nextBibleChapter()">
-          Next →
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-function saveVerseFromReader(verseNumber){
-
-  if(!currentBibleChapter) return;
-
-  const verse=currentBibleChapter.verses.find(
-    v=>Number(v.verse)===Number(verseNumber)
-  );
-
-  if(!verse) return;
-
-  const exists=data.savedScriptures.some(s=>
-    s.bookId===currentBibleChapter.bookId &&
-    s.chapter===currentBibleChapter.chapter &&
-    s.verse===verse.verse &&
-    s.translation===currentBibleChapter.translation
-  );
-
-  if(exists){
-
-    showToast("⭐ Scripture is already saved!");
-    return;
-
-  }
-
-  data.savedScriptures.unshift({
-
-    id:id(),
-    type:"scripture",
-    bookName:currentBibleChapter.bookName,
-    bookId:currentBibleChapter.bookId,
-    chapter:currentBibleChapter.chapter,
-    verse:verse.verse,
-    translation:currentBibleChapter.translation,
-    text:verse.text,
-    date:today(),
-    favorite:true
-
-  });
-
-  saveData();
-  renderAll();
-
-  showToast(
-    `⭐ ${currentBibleChapter.bookName} ${currentBibleChapter.chapter}:${verse.verse} saved!`
-  );
-
-}
-
-
-function saveCurrentChapter(){
-
-  if(!currentBibleChapter){
-
-    showToast("Read a chapter first.");
-    return;
-
-  }
-
-  const c=currentBibleChapter;
-
-  let added=0;
-
-  c.verses.forEach(v=>{
-
-    const exists=data.savedScriptures.some(s=>
-      s.bookId===c.bookId &&
-      s.chapter===c.chapter &&
-      s.verse===v.verse &&
-      s.translation===c.translation
-    );
-
-    if(!exists){
-
-      data.savedScriptures.push({
-
-        id:id(),
-        type:"scripture",
-        bookName:c.bookName,
-        bookId:c.bookId,
-        chapter:c.chapter,
-        verse:v.verse,
-        translation:c.translation,
-        text:v.text,
-        date:today(),
-        favorite:true
-
-      });
-
-      added++;
-
-    }
-
-  });
-
-  saveData();
-  renderAll();
-
-  showToast(`📌 ${added} verses saved from this chapter!`);
-
-}
-
-
-function previousBibleChapter(){
-
-  if(!currentBibleChapter) return;
-
-  let index=bibleBooks.findIndex(
-    b=>b[1]===currentBibleChapter.bookId
-  );
-
-  let chapter=currentBibleChapter.chapter;
-
-  if(chapter>1){
-
-    chapter--;
-
-  }else if(index>0){
-
-    index--;
-    chapter=bibleBooks[index][2];
-
-  }else{
-
-    return;
-
-  }
-
-  document.getElementById("bibleBook").value=index;
-
-  updateChapterOptions();
-
-  document.getElementById("bibleChapter").value=chapter;
-
-  loadBibleChapter();
-
-}
-
-
-function nextBibleChapter(){
-
-  if(!currentBibleChapter) return;
-
-  let index=bibleBooks.findIndex(
-    b=>b[1]===currentBibleChapter.bookId
-  );
-
-  let chapter=currentBibleChapter.chapter;
-
-  if(chapter<bibleBooks[index][2]){
-
-    chapter++;
-
-  }else if(index<bibleBooks.length-1){
-
-    index++;
-    chapter=1;
-
-  }else{
-
-    return;
-
-  }
-
-  document.getElementById("bibleBook").value=index;
-
-  updateChapterOptions();
-
-  document.getElementById("bibleChapter").value=chapter;
-
-  loadBibleChapter();
-
-}
-
-
-function recordReading(bookName,bookId,chapter,translation){
-
-  const exists=data.readingHistory.some(r=>
-    r.bookId===bookId &&
-    r.chapter===chapter &&
-    r.translation===translation
-  );
-
-  if(!exists){
-
-    data.readingHistory.unshift({
-
-      id:id(),
-      bookName:bookName,
-      bookId:bookId,
-      chapter:chapter,
-      translation:translation,
-      date:new Date().toISOString()
+      return memory.type===memoryFilter;
 
     });
 
-    saveData();
+  }
+
+  if(search){
+
+    memories=memories.filter(memory=>{
+
+      const text=[
+        memory.title,
+        memory.description,
+        ...(memory.tags || [])
+      ]
+      .join(" ")
+      .toLowerCase();
+
+      return text.includes(search);
+
+    });
 
   }
 
-}
-
-
-/* =========================================================
-   SAVED SCRIPTURES
-   ========================================================= */
-
-function renderSavedScriptures(){
-
-  const container=document.getElementById("savedScripturesList");
-
-  if(!container) return;
-
-  const search=
-    (document.getElementById("scriptureSearch")?.value || "")
-    .toLowerCase();
-
-  const list=data.savedScriptures.filter(s=>
-    `${s.bookName} ${s.chapter}:${s.verse} ${s.text}`
-      .toLowerCase()
-      .includes(search)
-  );
-
-  if(!list.length){
-
-    container.innerHTML=`
-      <div class="card empty">
-        ⭐ No saved Bible verses yet.<br><br>
-        Open the Bible Reader and tap ⭐ Save on a verse.
-      </div>
-    `;
-
-    return;
-
-  }
-
-  container.innerHTML=list.map(s=>`
-
-    <div class="scripture-card">
-
-      <div class="scripture-reference">
-
-        📖 ${escapeHTML(s.bookName)}
-        ${s.chapter}:${escapeHTML(s.verse)}
-
-        <span class="favorite">★</span>
-
-      </div>
-
-      <div class="scripture-text">
-        "${escapeHTML(s.text.trim())}"
-      </div>
-
-      <div class="muted" style="margin-top:8px">
-        ${escapeHTML(s.translation.toUpperCase())}
-        · Saved ${formatDate(s.date)}
-      </div>
-
-      <button class="btn small"
-        onclick="openSavedScripture('${s.id}')">
-        📖 Open Chapter
-      </button>
-
-      <button class="btn small danger"
-        onclick="deleteItem('savedScriptures','${s.id}')">
-        Delete
-      </button>
-
-    </div>
-
-  `).join("");
-
-}
-
-
-function openSavedScripture(savedId){
-
-  const scripture=data.savedScriptures.find(
-    s=>s.id===savedId
-  );
-
-  if(!scripture) return;
-
-  showFaithTab("bible");
-
-  const index=bibleBooks.findIndex(
-    b=>b[1]===scripture.bookId
-  );
-
-  if(index<0) return;
-
-  document.getElementById("bibleBook").value=index;
-
-  updateChapterOptions();
-
-  document.getElementById("bibleChapter").value=
-    scripture.chapter;
-
-  document.getElementById("bibleTranslation").value=
-    scripture.translation;
-
-  loadBibleChapter();
-
-}
-
-
-/* =========================================================
-   READING HISTORY
-   ========================================================= */
-
-function renderReadingHistory(){
-
-  const container=document.getElementById("readingHistoryList");
-
-  if(!container) return;
-
-  if(!data.readingHistory.length){
-
-    container.innerHTML=`
-      <div class="card empty">
-        📚 You haven't recorded any Bible chapters yet.
-      </div>
-    `;
-
-    return;
-
-  }
-
-  container.innerHTML=data.readingHistory.map(r=>`
-
-    <div class="card">
-
-      <h3>📖 ${escapeHTML(r.bookName)} ${r.chapter}</h3>
-
-      <div class="muted">
-        ${escapeHTML(r.translation.toUpperCase())}
-        · ${new Date(r.date).toLocaleDateString()}
-      </div>
-
-      <button class="btn small"
-        onclick="openReadingHistory('${r.id}')">
-        Read Again
-      </button>
-
-    </div>
-
-  `).join("");
-
-}
-
-
-function openReadingHistory(historyId){
-
-  const r=data.readingHistory.find(
-    x=>x.id===historyId
-  );
-
-  if(!r) return;
-
-  showFaithTab("bible");
-
-  const index=bibleBooks.findIndex(
-    b=>b[1]===r.bookId
-  );
-
-  document.getElementById("bibleBook").value=index;
-
-  updateChapterOptions();
-
-  document.getElementById("bibleChapter").value=r.chapter;
-
-  document.getElementById("bibleTranslation").value=r.translation;
-
-  loadBibleChapter();
-
-}
-
-
-/* =========================================================
-   AFFIRMATIONS
-   ========================================================= */
-
-const affirmationLibrary=[
-
-/* FAITH */
-{category:"faith",text:"I trust God even when I cannot see the whole path."},
-{category:"faith",text:"God is with me in every season of my life."},
-{category:"faith",text:"I will seek God first in everything I do."},
-{category:"faith",text:"My faith is growing stronger every day."},
-{category:"faith",text:"I can pray about everything."},
-{category:"faith",text:"God gives me wisdom for my decisions."},
-{category:"faith",text:"I will not allow fear to control me."},
-{category:"faith",text:"I trust God's timing."},
-{category:"faith",text:"God's Word guides my life."},
-{category:"faith",text:"I choose faith over fear."},
-{category:"faith",text:"I am learning to wait on God with patience."},
-{category:"faith",text:"God can make a way where I cannot see one."},
-{category:"faith",text:"I will continue to pray even while I wait."},
-{category:"faith",text:"My relationship with God is worth protecting."},
-{category:"faith",text:"I will make time for God's Word."},
-{category:"faith",text:"I will bring my worries to God instead of carrying them alone."},
-{category:"faith",text:"I am grateful for God's mercy and grace."},
-{category:"faith",text:"I will let God's Word renew my mind."},
-{category:"faith",text:"I will trust God with my future."},
-{category:"faith",text:"I will walk by faith and not by fear."},
-{category:"faith",text:"God is my source of wisdom, strength and direction."},
-{category:"faith",text:"I will remain faithful during difficult seasons."},
-{category:"faith",text:"I can start my day with prayer and purpose."},
-{category:"faith",text:"I will listen for God's direction before making important decisions."},
-{category:"faith",text:"My faith journey is personal, and I will keep growing."},
-
-/* BUSINESS */
-{category:"business",text:"God can give me wisdom to build my businesses."},
-{category:"business",text:"I will work with excellence and integrity."},
-{category:"business",text:"I will be disciplined with my time."},
-{category:"business",text:"I will learn from every opportunity."},
-{category:"business",text:"I will not give up because something is difficult."},
-{category:"business",text:"I can build something meaningful one step at a time."},
-{category:"business",text:"I will make wise business decisions."},
-{category:"business",text:"I will serve people well."},
-{category:"business",text:"I will stay focused on my goals."},
-{category:"business",text:"I will be consistent even when results are slow."},
-{category:"business",text:"I will follow through on the work I said I would do."},
-{category:"business",text:"I can learn the skills I need to grow."},
-{category:"business",text:"I will protect my time and use it wisely."},
-{category:"business",text:"I will keep improving my systems."},
-{category:"business",text:"I will treat every customer with respect."},
-{category:"business",text:"I will keep good records and make informed decisions."},
-{category:"business",text:"I will focus on solving real problems for real people."},
-{category:"business",text:"I can turn ideas into action."},
-{category:"business",text:"I will take one productive business step today."},
-{category:"business",text:"I will not let temporary setbacks define my business journey."},
-{category:"business",text:"I will keep learning about money, marketing and business."},
-{category:"business",text:"I will build with patience instead of rushing decisions."},
-{category:"business",text:"I will celebrate progress while continuing to improve."},
-{category:"business",text:"I will keep my business goals visible."},
-{category:"business",text:"I can create systems that make my work easier."},
-
-/* HEALTH */
-{category:"health",text:"I am taking better care of the body God gave me."},
-{category:"health",text:"I will make healthier choices today."},
-{category:"health",text:"I can take one healthy step at a time."},
-{category:"health",text:"I will be patient with my progress."},
-{category:"health",text:"I will listen to my body."},
-{category:"health",text:"I will prioritize rest and recovery."},
-{category:"health",text:"I am building healthier routines."},
-{category:"health",text:"I do not have to be perfect to make progress."},
-{category:"health",text:"Every healthy choice matters."},
-{category:"health",text:"I am becoming more disciplined with my health."},
-{category:"health",text:"I will focus on consistency instead of perfection."},
-{category:"health",text:"I can make better choices one meal at a time."},
-{category:"health",text:"I will make time for movement."},
-{category:"health",text:"I will give myself credit for progress."},
-{category:"health",text:"I will keep working toward healthier habits."},
-{category:"health",text:"My health deserves attention and care."},
-{category:"health",text:"I will build routines that support my goals."},
-{category:"health",text:"I can get back on track after a difficult day."},
-{category:"health",text:"I will focus on what I can do today."},
-{category:"health",text:"I will make choices that support the future I want."},
-{category:"health",text:"I will be patient with myself while I learn."},
-{category:"health",text:"I am building strength through consistency."},
-{category:"health",text:"I will celebrate small healthy victories."},
-{category:"health",text:"I will take care of myself so I can continue doing what matters to me."},
-{category:"health",text:"One healthy decision today can become a healthy habit tomorrow."},
-
-/* MOTIVATION */
-{category:"motivation",text:"I can start even when I do not feel ready."},
-{category:"motivation",text:"I will do today's work today."},
-{category:"motivation",text:"Small steps still move me forward."},
-{category:"motivation",text:"I will keep going."},
-{category:"motivation",text:"I am capable of learning new things."},
-{category:"motivation",text:"I do not have to finish everything at once."},
-{category:"motivation",text:"Progress is still progress."},
-{category:"motivation",text:"I will focus on what I can control."},
-{category:"motivation",text:"I will get back up when I fall."},
-{category:"motivation",text:"I am building the life I have been praying for."},
-{category:"motivation",text:"I will stop waiting for the perfect time and begin."},
-{category:"motivation",text:"I can do hard things one step at a time."},
-{category:"motivation",text:"I will keep my eyes on the goal."},
-{category:"motivation",text:"I will not let one bad day become a bad week."},
-{category:"motivation",text:"I can change direction without giving up."},
-{category:"motivation",text:"I will finish what I start."},
-{category:"motivation",text:"I will choose action over procrastination."},
-{category:"motivation",text:"I can learn from mistakes instead of being defined by them."},
-{category:"motivation",text:"I will keep showing up."},
-{category:"motivation",text:"My future is built by the actions I take today."},
-{category:"motivation",text:"I will protect my focus."},
-{category:"motivation",text:"I will give myself permission to grow."},
-{category:"motivation",text:"I can take the next step even if I cannot see every step after it."},
-{category:"motivation",text:"I will be consistent when motivation is low."},
-{category:"motivation",text:"Today is another opportunity to move forward."}
-
-];
-
-
-let currentAffirmationFilter="all";
-
-
-function getAllAffirmations(){
-
-  return [
-    ...affirmationLibrary,
-    ...data.customAffirmations
-  ];
-
-}
-
-
-function filterAffirmations(category){
-
-  currentAffirmationFilter=category;
-
-  renderAffirmations(category);
-
-}
-
-
-function renderAffirmations(category){
-
-  const container=document.getElementById("affirmationList");
-
-  if(!container) return;
-
-  let list=getAllAffirmations();
-
-  if(category==="saved"){
-
-    list=list.filter(a=>
-      data.savedAffirmations.includes(a.text)
-    );
-
-  }else if(category!=="all"){
-
-    list=list.filter(a=>a.category===category);
-
-  }
-
-  if(!list.length){
+  if(!memories.length){
 
     container.innerHTML=`
       <div class="empty">
-        No affirmations in this section yet.
+        No memories found yet.
+        <br><br>
+        Click <strong>Add Memory</strong> to save a photo or video.
       </div>
     `;
 
@@ -3003,38 +2822,92 @@ function renderAffirmations(category){
 
   }
 
-  container.innerHTML=list.map((a,index)=>{
 
-    const saved=data.savedAffirmations.includes(a.text);
+  container.innerHTML=memories.map(memory=>{
+
+    const media=getMemoryMedia(memory);
+
+    let mediaHTML="";
+
+    if(media.type==="video" && media.media){
+
+      mediaHTML=`
+        <video
+          controls
+          preload="metadata"
+          src="${escapeHTML(media.media)}">
+        </video>
+      `;
+
+    }else if(media.media){
+
+      mediaHTML=`
+        <img
+          src="${escapeHTML(media.media)}"
+          alt="${escapeHTML(memory.title || "Memory")}">
+      `;
+
+    }else{
+
+      mediaHTML=`<div class="no-media">🐝</div>`;
+
+    }
 
     return `
 
-      <div class="affirmation">
+      <div class="memory-card">
 
-        <div class="affirmation-category">
-          ${categoryLabel(a.category)}
+        <div class="memory-media">
+          ${mediaHTML}
         </div>
 
-        <p>${escapeHTML(a.text)}</p>
+        <div class="memory-body">
 
-        <div class="affirmation-actions">
+          <div class="memory-type">
+            ${memory.type==="video" ? "🎥 Video" :
+              memory.type==="image" ? "📸 Photo" :
+              memory.type==="screenshot" ? "🖥️ Screenshot" :
+              "💕 Moment"}
+          </div>
 
-          <button
-            class="btn small"
-            onclick='toggleAffirmation(${JSON.stringify(a.text)})'>
-            ${saved ? "⭐ Saved" : "☆ Save"}
-          </button>
+          <div class="memory-title">
+            ${escapeHTML(memory.title || "Untitled Memory")}
+            ${memory.favorite ? " ❤️" : ""}
+          </div>
 
-          ${data.customAffirmations.some(x=>x.text===a.text)
-            ? `
-              <button
-                class="btn small danger"
-                onclick='deleteCustomAffirmation(${JSON.stringify(a.text)})'>
-                Delete
-              </button>
-            `
-            : ""
-          }
+          <div class="memory-description">
+            ${escapeHTML(memory.description || "")}
+          </div>
+
+          <div style="margin-top:8px;color:#888;font-size:12px;">
+            ${escapeHTML(memory.date || "")}
+          </div>
+
+          <div class="tags">
+
+            ${(memory.tags || []).map(tag=>`
+              <span class="tag">
+                #${escapeHTML(tag)}
+              </span>
+            `).join("")}
+
+          </div>
+
+          <div class="card-actions">
+
+            <button
+              class="small-btn"
+              onclick="toggleMemoryFavorite('${memory.id}')">
+              ${memory.favorite ? "💔 Unfavorite" : "❤️ Favorite"}
+            </button>
+
+            <button
+              class="small-btn"
+              onclick="deleteMemory('${memory.id}')">
+              🗑️ Delete
+            </button>
+
+          </div>
 
         </div>
 
@@ -3047,197 +2920,94 @@ function renderAffirmations(category){
 }
 
 
-function categoryLabel(category){
+function toggleMemoryFavorite(id){
 
-  if(category==="faith") return "🙏 Faith";
-  if(category==="business") return "💼 Business";
-  if(category==="health") return "💗 Health";
-  if(category==="motivation") return "🔥 Motivation";
+  const memory=data.memories.find(x=>x.id===id);
 
-  return category;
+  if(memory){
+
+    memory.favorite=!memory.favorite;
+
+    saveData();
+
+    renderAll();
+
+  }
 
 }
 
 
-function toggleAffirmation(text){
+function deleteMemory(id){
 
-  const index=data.savedAffirmations.indexOf(text);
-
-  if(index>=0){
-
-    data.savedAffirmations.splice(index,1);
-    showToast("Affirmation removed from My Affirmations.");
-
-  }else{
-
-    data.savedAffirmations.push(text);
-    showToast("⭐ Affirmation saved!");
-
+  if(!confirm("Delete this memory?")){
+    return;
   }
+
+  data.memories=data.memories.filter(x=>x.id!==id);
 
   saveData();
 
-  renderAffirmations(currentAffirmationFilter);
-
   renderAll();
+
+  showToast("Memory deleted.");
 
 }
 
 
-function addCustomAffirmation(){
+/* ============================================================
+   JOURNAL
+============================================================ */
 
-  const text=
-    document.getElementById("customAffirmation").value.trim();
+function saveJournal(event){
 
-  const category=
-    document.getElementById("customAffirmationCategory").value;
+  event.preventDefault();
 
-  if(!text){
+  data.journal.unshift({
 
-    showToast("Please write an affirmation.");
-    return;
+    id:uid(),
 
-  }
+    date:getToday(),
 
-  data.customAffirmations.push({
-    text:text,
-    category:category
+    feeling:document.getElementById("journalFeeling").value.trim(),
+
+    gratitude:document.getElementById("journalGratitude").value.trim(),
+
+    win:document.getElementById("journalWin").value.trim(),
+
+    lesson:document.getElementById("journalLesson").value.trim(),
+
+    thoughts:document.getElementById("journalThoughts").value.trim(),
+
+    favorite:false,
+
+    createdAt:new Date().toISOString()
+
   });
 
   saveData();
 
-  document.getElementById("customAffirmation").value="";
+  closeModal("journalModal");
 
-  renderAffirmations(currentAffirmationFilter);
-
-  showToast("💬 Your affirmation was added!");
-
-}
-
-
-function deleteCustomAffirmation(text){
-
-  data.customAffirmations=
-    data.customAffirmations.filter(x=>x.text!==text);
-
-  data.savedAffirmations=
-    data.savedAffirmations.filter(x=>x!==text);
-
-  saveData();
-
-  renderAffirmations(currentAffirmationFilter);
-
-  showToast("Affirmation deleted.");
-
-}
-
-
-/* =========================================================
-   DAILY AFFIRMATION
-   ========================================================= */
-
-let currentDailyAffirmation="";
-
-
-function newDailyAffirmation(){
-
-  const list=getAllAffirmations();
-
-  if(!list.length) return;
-
-  const random=
-    list[Math.floor(Math.random()*list.length)];
-
-  currentDailyAffirmation=random.text;
-
-  document.getElementById("dailyAffirmation").textContent=
-    random.text;
-
-}
-
-
-function saveDailyAffirmation(){
-
-  if(!currentDailyAffirmation){
-
-    newDailyAffirmation();
-
-  }
-
-  if(!data.savedAffirmations.includes(currentDailyAffirmation)){
-
-    data.savedAffirmations.push(currentDailyAffirmation);
-
-    saveData();
-
-    showToast("⭐ Daily affirmation saved!");
-
-    renderAll();
-
-  }else{
-
-    showToast("⭐ Already saved!");
-
-  }
-
-}
-
-
-/* =========================================================
-   GOALS
-   ========================================================= */
-
-function saveGoal(){
-
-  const goal={
-
-    id:id(),
-    title:document.getElementById("gTitle").value,
-    category:document.getElementById("gCategory").value,
-    date:document.getElementById("gDate").value,
-    why:document.getElementById("gWhy").value,
-    vision:document.getElementById("gVision").value,
-    milestones:[
-      {
-        id:id(),
-        text:document.getElementById("gMilestone").value,
-        done:false
-      }
-    ],
-    progress:0,
-    favorite:false
-
-  };
-
-  if(!goal.title){
-
-    showToast("Please enter a goal.");
-    return;
-
-  }
-
-  data.goals.unshift(goal);
-
-  saveData();
-  closeModal();
   renderAll();
 
-  showToast("🎯 Goal saved!");
+  showToast("📔 Journal entry saved!");
 
 }
 
 
-function renderGoals(){
+function renderJournal(){
 
-  const container=document.getElementById("goalsList");
+  const container=document.getElementById("journalList");
 
-  if(!container) return;
+  if(!container){
+    return;
+  }
 
-  if(!data.goals.length){
+  if(!data.journal.length){
 
     container.innerHTML=`
-      <div class="card empty">
-        🎯 No goals yet. Add your first goal.
+      <div class="empty">
+        Your journal is waiting for your first entry.
       </div>
     `;
 
@@ -3245,86 +3015,878 @@ function renderGoals(){
 
   }
 
-  container.innerHTML=data.goals.map(g=>`
+  container.innerHTML=data.journal.map(entry=>`
 
-    <div class="card">
+    <div class="journal-entry">
 
-      <h3>
-        ${escapeHTML(g.title)}
-        ${g.favorite ? '<span class="favorite">★</span>' : ''}
-      </h3>
+      <div class="journal-date">
+        📅 ${escapeHTML(entry.date)}
+      </div>
 
-      <span class="tag">${escapeHTML(g.category)}</span>
-
-      ${g.date ? `
-        <div class="muted">
-          Target: ${formatDate(g.date)}
+      ${entry.feeling ? `
+        <div class="journal-line">
+          <strong>💭 Feeling:</strong>
+          ${escapeHTML(entry.feeling)}
         </div>
       `:""}
 
-      <div class="goal-progress">
-        <div style="width:${g.progress||0}%"></div>
-      </div>
-
-      <strong>${g.progress||0}% complete</strong>
-
-      ${g.why ? `
-        <p style="margin-top:12px">
-          <strong>Why:</strong><br>
-          ${escapeHTML(g.why)}
-        </p>
+      ${entry.gratitude ? `
+        <div class="journal-line">
+          <strong>🌷 Gratitude:</strong>
+          ${escapeHTML(entry.gratitude)}
+        </div>
       `:""}
 
-      ${g.vision ? `
-        <p style="margin-top:12px">
-          <strong>Vision:</strong><br>
-          ${escapeHTML(g.vision)}
-        </p>
+      ${entry.win ? `
+        <div class="journal-line">
+          <strong>🏆 Win:</strong>
+          ${escapeHTML(entry.win)}
+        </div>
       `:""}
 
-      <div style="margin-top:12px">
+      ${entry.lesson ? `
+        <div class="journal-line">
+          <strong>📚 Lesson:</strong>
+          ${escapeHTML(entry.lesson)}
+        </div>
+      `:""}
 
-        <button class="btn small"
-          onclick="changeGoalProgress('${g.id}',-10)">
-          -10%
-        </button>
+      ${entry.thoughts ? `
+        <div class="journal-line">
+          <strong>❤️ Thoughts:</strong>
+          ${escapeHTML(entry.thoughts)}
+        </div>
+      `:""}
 
-        <button class="btn small green"
-          onclick="changeGoalProgress('${g.id}',10)">
-          +10%
+      <div class="card-actions">
+
+        <button
+          class="small-btn"
+          onclick="deleteJournal('${entry.id}')">
+          🗑️ Delete
         </button>
 
       </div>
 
-      <div style="margin-top:12px">
+    </div>
 
-        <strong>Milestones</strong>
+  `).join("");
 
-        ${(g.milestones||[]).map(m=>`
+}
 
-          <div style="margin-top:7px">
 
-            <label>
+function deleteJournal(id){
 
-              <input
-                type="checkbox"
-                style="width:auto"
-                ${m.done?"checked":""}
-                onchange="toggleMilestone('${g.id}','${m.id}')">
+  if(!confirm("Delete this journal entry?")){
+    return;
+  }
 
-              ${escapeHTML(m.text)}
+  data.journal=data.journal.filter(x=>x.id!==id);
 
-            </label>
+  saveData();
+
+  renderAll();
+
+}
+
+
+/* ============================================================
+   BIBLE INITIALIZATION
+============================================================ */
+
+function populateBibleBooks(){
+
+  const select=document.getElementById("bibleBook");
+
+  if(!select){
+    return;
+  }
+
+  select.innerHTML=bibleBooks.map(book=>`
+
+    <option value="${book[0]}">
+      ${book[1]}
+    </option>
+
+  `).join("");
+
+  select.value="GEN";
+
+}
+
+
+/* ============================================================
+   BIBLE HELPERS
+============================================================ */
+
+function getSelectedBook(){
+
+  const id=document.getElementById("bibleBook").value;
+
+  return bibleBooks.find(book=>book[0]===id);
+
+}
+
+
+function getBibleTranslation(){
+
+  return document.getElementById("bibleTranslation").value;
+
+}
+
+
+function getBibleChapter(){
+
+  return Math.max(
+    1,
+    parseInt(document.getElementById("bibleChapter").value || "1")
+  );
+
+}
+
+
+function setBibleStatus(message,type="info"){
+
+  const box=document.getElementById("bibleStatus");
+
+  if(!box){
+    return;
+  }
+
+  box.classList.add("show");
+
+  box.innerHTML=message;
+
+  if(type==="error"){
+    box.style.borderLeftColor="#d33";
+    box.style.background="#fff0f0";
+  }else{
+    box.style.borderLeftColor="#ff9fbd";
+    box.style.background="#fff4f8";
+  }
+
+}
+
+
+/* ============================================================
+   FIXED BIBLE READER
+============================================================ */
+
+async function readChapter(){
+
+  const book=getSelectedBook();
+
+  if(!book){
+    setBibleStatus("Please choose a Bible book.","error");
+    return;
+  }
+
+  let chapter=getBibleChapter();
+
+  if(chapter>book[2]){
+
+    chapter=book[2];
+
+    document.getElementById("bibleChapter").value=chapter;
+
+  }
+
+  const translation=getBibleTranslation();
+
+  const bookId=book[0];
+
+  const bookName=book[1];
+
+  const reader=document.getElementById("bibleReader");
+
+  reader.innerHTML=`
+
+    <div class="card">
+
+      <div style="text-align:center;padding:30px;">
+        <div style="font-size:45px;">📖</div>
+        <h3 style="margin-top:10px;">
+          Loading ${escapeHTML(bookName)} ${chapter}...
+        </h3>
+        <p style="margin-top:5px;color:#777;">
+          Please wait while your chapter loads.
+        </p>
+      </div>
+
+    </div>
+
+  `;
+
+  setBibleStatus(
+    `📖 Loading ${escapeHTML(bookName)} ${chapter}...`
+  );
+
+
+  /*
+    PRIMARY VERIFIED CHAPTER ENDPOINT
+  */
+
+  const primaryURL =
+    "https://bible-api.com/data/" +
+    encodeURIComponent(translation) +
+    "/" +
+    encodeURIComponent(bookId) +
+    "/" +
+    encodeURIComponent(chapter);
+
+
+  try{
+
+    const response=await fetch(primaryURL,{
+
+      method:"GET",
+
+      headers:{
+        "Accept":"application/json"
+      }
+
+    });
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "Bible API returned HTTP " + response.status
+      );
+
+    }
+
+
+    const result=await response.json();
+
+
+    if(!result.verses || !result.verses.length){
+
+      throw new Error(
+        "No verses were returned for this chapter."
+      );
+
+    }
+
+
+    displayBibleChapter(
+      result,
+      bookName,
+      chapter,
+      translation
+    );
+
+
+  }catch(error){
+
+    console.error("Bible chapter error:",error);
+
+    /*
+      FALLBACK API METHOD
+    */
+
+    try{
+
+      const fallbackQuery =
+        encodeURIComponent(bookName + " " + chapter);
+
+      const fallbackURL =
+        "https://bible-api.com/" +
+        fallbackQuery +
+        "?translation=" +
+        encodeURIComponent(translation) +
+        "&single_chapter_book_matching=indifferent";
+
+
+      const fallbackResponse=await fetch(fallbackURL);
+
+      if(!fallbackResponse.ok){
+        throw new Error(
+          "Fallback API returned HTTP " +
+          fallbackResponse.status
+        );
+      }
+
+      const fallbackResult=await fallbackResponse.json();
+
+      if(
+        !fallbackResult.verses ||
+        !fallbackResult.verses.length
+      ){
+        throw new Error("No verses returned.");
+      }
+
+      displayBibleChapter(
+        fallbackResult,
+        bookName,
+        chapter,
+        translation
+      );
+
+    }catch(fallbackError){
+
+      console.error(fallbackError);
+
+      reader.innerHTML=`
+
+        <div class="card">
+
+          <div class="empty">
+
+            <div style="font-size:50px;">📖</div>
+
+            <h3 style="margin:10px 0;">
+              The chapter could not be loaded.
+            </h3>
+
+            <p>
+              Please check your internet connection and try
+              <strong>Read Chapter</strong> again.
+            </p>
+
+            <button
+              class="btn btn-pink"
+              style="margin-top:15px;"
+              onclick="readChapter()">
+              🔄 Try Again
+            </button>
 
           </div>
 
-        `).join("")}
+        </div>
+
+      `;
+
+      setBibleStatus(
+        "The Bible chapter could not be loaded. Please try again.",
+        "error"
+      );
+
+    }
+
+  }
+
+}
+
+
+/* ============================================================
+   DISPLAY BIBLE CHAPTER
+============================================================ */
+
+function displayBibleChapter(
+  result,
+  bookName,
+  chapter,
+  translation
+){
+
+  const reader=document.getElementById("bibleReader");
+
+  const verses=result.verses || [];
+
+
+  /*
+    Automatically save the chapter to reading history.
+  */
+
+  const historyEntry={
+
+    id:uid(),
+
+    book:bookName,
+
+    bookId:document.getElementById("bibleBook").value,
+
+    chapter:chapter,
+
+    translation:translation,
+
+    date:new Date().toISOString()
+
+  };
+
+
+  /*
+    Do not create duplicate history entries if the same
+    chapter was just read repeatedly.
+  */
+
+  const duplicate=data.readingHistory.find(item=>{
+
+    return (
+      item.bookId===historyEntry.bookId &&
+      Number(item.chapter)===Number(historyEntry.chapter) &&
+      item.translation===historyEntry.translation
+    );
+
+  });
+
+
+  if(!duplicate){
+
+    data.readingHistory.unshift(historyEntry);
+
+  }else{
+
+    duplicate.date=new Date().toISOString();
+
+  }
+
+
+  /*
+    IMPORTANT:
+    Automatically save EVERY verse in a chapter that is read.
+  */
+
+  let autoSavedCount=0;
+
+
+  verses.forEach(verse=>{
+
+    const verseNumber=
+      verse.verse ||
+      verse.verse_number ||
+      verse.number ||
+      "";
+
+
+    const text=
+      verse.text ||
+      "";
+
+
+    const alreadySaved=data.savedScriptures.find(saved=>{
+
+      return (
+        saved.book===bookName &&
+        Number(saved.chapter)===Number(chapter) &&
+        Number(saved.verse)===Number(verseNumber) &&
+        saved.translation===translation
+      );
+
+    });
+
+
+    if(!alreadySaved){
+
+      data.savedScriptures.unshift({
+
+        id:uid(),
+
+        book:bookName,
+
+        bookId:document.getElementById("bibleBook").value,
+
+        chapter:chapter,
+
+        verse:verseNumber,
+
+        text:text.trim(),
+
+        translation:translation,
+
+        autoSaved:true,
+
+        favorite:false,
+
+        savedAt:new Date().toISOString()
+
+      });
+
+      autoSavedCount++;
+
+    }
+
+  });
+
+
+  saveData();
+
+
+  reader.innerHTML=`
+
+    <div class="bible-chapter">
+
+      <div class="bible-title">
+        ${escapeHTML(bookName)} ${chapter}
+      </div>
+
+      <div class="bible-subtitle">
+        ${translation.toUpperCase()}
+        • ${verses.length} verses
+      </div>
+
+      ${verses.map(verse=>{
+
+        const verseNumber=
+          verse.verse ||
+          verse.verse_number ||
+          verse.number ||
+          "";
+
+        const text=verse.text || "";
+
+        return `
+
+          <div class="verse">
+
+            <div class="verse-text">
+
+              <span class="verse-number">
+                ${escapeHTML(String(verseNumber))}
+              </span>
+
+              ${escapeHTML(text)}
+
+            </div>
+
+            <div class="verse-actions">
+
+              <button
+                class="verse-save"
+                onclick="saveSingleVerse(
+                  '${escapeJS(bookName)}',
+                  '${escapeJS(document.getElementById("bibleBook").value)}',
+                  '${escapeJS(String(chapter))}',
+                  '${escapeJS(String(verseNumber))}',
+                  '${escapeJS(text)}',
+                  '${escapeJS(translation)}'
+                )">
+                ✝️ Save Verse
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }).join("")}
+
+    </div>
+
+  `;
+
+
+  setBibleStatus(
+    `✅ ${escapeHTML(bookName)} ${chapter} loaded. ` +
+    `${autoSavedCount} verse(s) automatically saved to My Bible Verses.`
+  );
+
+
+  renderSavedScriptures();
+
+}
+
+
+/* ============================================================
+   SAVE SINGLE VERSE
+============================================================ */
+
+function saveSingleVerse(
+  book,
+  bookId,
+  chapter,
+  verse,
+  text,
+  translation
+){
+
+  const exists=data.savedScriptures.find(item=>{
+
+    return (
+      item.bookId===bookId &&
+      Number(item.chapter)===Number(chapter) &&
+      Number(item.verse)===Number(verse) &&
+      item.translation===translation
+    );
+
+  });
+
+
+  if(exists){
+
+    exists.favorite=true;
+
+    saveData();
+
+    renderSavedScriptures();
+
+    showToast("✝️ Verse is already saved.");
+
+    return;
+
+  }
+
+
+  data.savedScriptures.unshift({
+
+    id:uid(),
+
+    book:book,
+
+    bookId:bookId,
+
+    chapter:Number(chapter),
+
+    verse:Number(verse),
+
+    text:text,
+
+    translation:translation,
+
+    autoSaved:false,
+
+    favorite:true,
+
+    savedAt:new Date().toISOString()
+
+  });
+
+
+  saveData();
+
+  renderSavedScriptures();
+
+  showToast("✝️ Verse saved to My Bible Verses!");
+
+}
+
+
+/* ============================================================
+   PREVIOUS / NEXT CHAPTER
+============================================================ */
+
+function previousChapter(){
+
+  const book=getSelectedBook();
+
+  if(!book){
+    return;
+  }
+
+  let chapter=getBibleChapter();
+
+  if(chapter<=1){
+
+    showToast("This is the first chapter of this book.");
+
+    return;
+
+  }
+
+  document.getElementById("bibleChapter").value=chapter-1;
+
+  readChapter();
+
+}
+
+
+function nextChapter(){
+
+  const book=getSelectedBook();
+
+  if(!book){
+    return;
+  }
+
+  let chapter=getBibleChapter();
+
+  if(chapter>=book[2]){
+
+    showToast("This is the last chapter of this book.");
+
+    return;
+
+  }
+
+  document.getElementById("bibleChapter").value=chapter+1;
+
+  readChapter();
+
+}
+
+
+/* ============================================================
+   BIBLE BOOK CHANGE
+============================================================ */
+
+document.addEventListener("change",function(event){
+
+  if(event.target.id==="bibleBook"){
+
+    document.getElementById("bibleChapter").value=1;
+
+  }
+
+});
+
+
+/* ============================================================
+   SAVED SCRIPTURES
+============================================================ */
+
+function renderSavedScriptures(){
+
+  const container=document.getElementById("savedScriptures");
+
+  if(!container){
+    return;
+  }
+
+  if(!data.savedScriptures.length){
+
+    container.innerHTML=`
+
+      <div class="empty">
+        No Bible verses saved yet.
+        <br><br>
+        Read a chapter and your verses will automatically appear here.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML=data.savedScriptures.map(item=>`
+
+    <div class="scripture-card">
+
+      <div class="scripture-reference">
+
+        ${escapeHTML(item.book)}
+        ${escapeHTML(String(item.chapter))}:
+        ${escapeHTML(String(item.verse))}
+
+        ${item.favorite ? " ❤️" : ""}
 
       </div>
 
-      <button class="btn small danger"
-        onclick="deleteItem('goals','${g.id}')">
-        Delete
+      <div class="scripture-text">
+        ${escapeHTML(item.text)}
+      </div>
+
+      <div>
+
+        <span class="auto-saved">
+          ${item.autoSaved ? "✓ Automatically Saved" : "✓ Saved"}
+        </span>
+
+      </div>
+
+      <div class="card-actions">
+
+        <button
+          class="small-btn"
+          onclick="toggleVerseFavorite('${item.id}')">
+          ${item.favorite ? "💔 Unfavorite" : "❤️ Favorite"}
+        </button>
+
+        <button
+          class="small-btn"
+          onclick="deleteScripture('${item.id}')">
+          🗑️ Delete
+        </button>
+
+      </div>
+
+    </div>
+
+  `).join("");
+
+}
+
+
+function toggleVerseFavorite(id){
+
+  const item=data.savedScriptures.find(x=>x.id===id);
+
+  if(item){
+
+    item.favorite=!item.favorite;
+
+    saveData();
+
+    renderSavedScriptures();
+
+  }
+
+}
+
+
+function deleteScripture(id){
+
+  if(!confirm("Delete this saved Bible verse?")){
+    return;
+  }
+
+  data.savedScriptures=data.savedScriptures.filter(
+    x=>x.id!==id
+  );
+
+  saveData();
+
+  renderSavedScriptures();
+
+}
+
+
+/* ============================================================
+   READING HISTORY
+============================================================ */
+
+function renderReadingHistory(){
+
+  const container=document.getElementById("readingHistory");
+
+  if(!container){
+    return;
+  }
+
+  if(!data.readingHistory.length){
+
+    container.innerHTML=`
+
+      <div class="empty">
+        Your Bible reading history will appear here.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML=data.readingHistory.map(item=>`
+
+    <div class="history-item">
+
+      <div>
+
+        <strong>
+          📖 ${escapeHTML(item.book)}
+          ${escapeHTML(String(item.chapter))}
+        </strong>
+
+        <div style="color:#777;font-size:12px;margin-top:4px;">
+          ${escapeHTML(item.translation.toUpperCase())}
+          • ${formatDateTime(item.date)}
+        </div>
+
+      </div>
+
+      <button
+        class="small-btn"
+        onclick="openHistoryChapter(
+          '${escapeJS(item.bookId)}',
+          ${Number(item.chapter)},
+          '${escapeJS(item.translation)}'
+        )">
+        Read Again
       </button>
 
     </div>
@@ -3334,38 +3896,764 @@ function renderGoals(){
 }
 
 
-function changeGoalProgress(goalId,amount){
+function openHistoryChapter(bookId,chapter,translation){
 
-  const goal=data.goals.find(g=>g.id===goalId);
+  document.getElementById("bibleBook").value=bookId;
 
-  if(!goal) return;
+  document.getElementById("bibleChapter").value=chapter;
 
-  goal.progress=Math.max(
-    0,
-    Math.min(100,(goal.progress||0)+amount)
+  document.getElementById("bibleTranslation").value=translation;
+
+  selectFaithPanel("bible");
+
+  readChapter();
+
+}
+
+
+/* ============================================================
+   AFFIRMATIONS
+============================================================ */
+
+function setAffirmationCategory(category,button){
+
+  affirmationCategory=category;
+
+  document.querySelectorAll(".affirmation-btn").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  if(button){
+    button.classList.add("active");
+  }
+
+  renderAffirmations();
+
+}
+
+
+function renderAffirmations(){
+
+  const container=document.getElementById("affirmationGrid");
+
+  if(!container){
+    return;
+  }
+
+
+  let list=[...affirmations];
+
+
+  const custom=data.customAffirmations.map(item=>({
+
+    category:"custom",
+
+    text:item.text,
+
+    id:item.id
+
+  }));
+
+
+  list=list.concat(custom);
+
+
+  if(affirmationCategory!=="all"){
+
+    list=list.filter(item=>{
+
+      if(
+        affirmationCategory==="custom"
+      ){
+        return item.category==="custom";
+      }
+
+      return item.category===affirmationCategory;
+
+    });
+
+  }
+
+
+  container.innerHTML=list.map(item=>`
+
+    <div class="affirmation">
+
+      <div class="affirmation-category">
+        ${getAffirmationCategoryName(item.category)}
+      </div>
+
+      <div>
+        “${escapeHTML(item.text)}”
+      </div>
+
+      ${item.id ? `
+
+        <div class="card-actions">
+
+          <button
+            class="small-btn"
+            onclick="deleteCustomAffirmation('${item.id}')">
+            🗑️ Delete
+          </button>
+
+        </div>
+
+      `:""}
+
+    </div>
+
+  `).join("");
+
+}
+
+
+function getAffirmationCategoryName(category){
+
+  const names={
+
+    faith:"🙏 Faith",
+
+    business:"💼 Business",
+
+    health:"💜 Health",
+
+    motivation:"🔥 Motivation",
+
+    custom:"✨ My Affirmation"
+
+  };
+
+  return names[category] || category;
+
+}
+
+
+function saveCustomAffirmation(event){
+
+  event.preventDefault();
+
+  data.customAffirmations.unshift({
+
+    id:uid(),
+
+    category:document.getElementById(
+      "customAffirmationCategory"
+    ).value,
+
+    text:document.getElementById(
+      "customAffirmationText"
+    ).value.trim(),
+
+    createdAt:new Date().toISOString()
+
+  });
+
+  saveData();
+
+  closeModal("affirmationModal");
+
+  renderAffirmations();
+
+  showToast("💗 Affirmation saved!");
+
+}
+
+
+function deleteCustomAffirmation(id){
+
+  if(!confirm("Delete this affirmation?")){
+    return;
+  }
+
+  data.customAffirmations=data.customAffirmations.filter(
+    x=>x.id!==id
   );
 
   saveData();
+
+  renderAffirmations();
+
+}
+
+
+/* ============================================================
+   PRAYERS
+============================================================ */
+
+function savePrayer(event){
+
+  event.preventDefault();
+
+  data.prayers.unshift({
+
+    id:uid(),
+
+    text:document.getElementById("prayerText").value.trim(),
+
+    date:document.getElementById("prayerDate").value || getToday(),
+
+    createdAt:new Date().toISOString()
+
+  });
+
+  saveData();
+
+  document.getElementById("prayerText").value="";
+
+  renderPrayers();
+
+  showToast("🙏 Prayer saved.");
+
+}
+
+
+function renderPrayers(){
+
+  const container=document.getElementById("prayerList");
+
+  if(!container){
+    return;
+  }
+
+  if(!data.prayers.length){
+
+    container.innerHTML=`
+      <div class="empty">
+        Your prayer journal is ready.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML=data.prayers.map(item=>`
+
+    <div class="journal-entry">
+
+      <div class="journal-date">
+        🙏 ${escapeHTML(item.date)}
+      </div>
+
+      <div class="journal-line">
+        ${escapeHTML(item.text)}
+      </div>
+
+      <button
+        class="small-btn"
+        onclick="deletePrayer('${item.id}')">
+        🗑️ Delete
+      </button>
+
+    </div>
+
+  `).join("");
+
+}
+
+
+function deletePrayer(id){
+
+  data.prayers=data.prayers.filter(x=>x.id!==id);
+
+  saveData();
+
+  renderPrayers();
+
+}
+
+
+/* ============================================================
+   ANSWERED PRAYERS
+============================================================ */
+
+function saveAnsweredPrayer(event){
+
+  event.preventDefault();
+
+  data.answeredPrayers.unshift({
+
+    id:uid(),
+
+    text:document.getElementById("answeredText").value.trim(),
+
+    date:document.getElementById("answeredDate").value || getToday(),
+
+    createdAt:new Date().toISOString()
+
+  });
+
+  saveData();
+
+  document.getElementById("answeredText").value="";
+
+  renderAnsweredPrayers();
+
+  showToast("🙌 Answered prayer saved!");
+
+}
+
+
+function renderAnsweredPrayers(){
+
+  const container=document.getElementById("answeredList");
+
+  if(!container){
+    return;
+  }
+
+  if(!data.answeredPrayers.length){
+
+    container.innerHTML=`
+      <div class="empty">
+        Keep this space for the prayers God answers.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML=data.answeredPrayers.map(item=>`
+
+    <div class="journal-entry">
+
+      <div class="journal-date">
+        🙌 ${escapeHTML(item.date)}
+      </div>
+
+      <div class="journal-line">
+        ${escapeHTML(item.text)}
+      </div>
+
+      <button
+        class="small-btn"
+        onclick="deleteAnsweredPrayer('${item.id}')">
+        🗑️ Delete
+      </button>
+
+    </div>
+
+  `).join("");
+
+}
+
+
+function deleteAnsweredPrayer(id){
+
+  data.answeredPrayers=data.answeredPrayers.filter(
+    x=>x.id!==id
+  );
+
+  saveData();
+
+  renderAnsweredPrayers();
+
+}
+
+
+/* ============================================================
+   GRATITUDE
+============================================================ */
+
+function saveGratitude(event){
+
+  event.preventDefault();
+
+  data.gratitude.unshift({
+
+    id:uid(),
+
+    text:document.getElementById("gratitudeText").value.trim(),
+
+    date:document.getElementById("gratitudeDate").value || getToday(),
+
+    createdAt:new Date().toISOString()
+
+  });
+
+  saveData();
+
+  document.getElementById("gratitudeText").value="";
+
+  renderGratitude();
+
+  showToast("🌷 Gratitude saved!");
+
+}
+
+
+function renderGratitude(){
+
+  const container=document.getElementById("gratitudeList");
+
+  if(!container){
+    return;
+  }
+
+  if(!data.gratitude.length){
+
+    container.innerHTML=`
+      <div class="empty">
+        Write down what you are thankful for.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML=data.gratitude.map(item=>`
+
+    <div class="journal-entry">
+
+      <div class="journal-date">
+        🌷 ${escapeHTML(item.date)}
+      </div>
+
+      <div class="journal-line">
+        ${escapeHTML(item.text)}
+      </div>
+
+      <button
+        class="small-btn"
+        onclick="deleteGratitude('${item.id}')">
+        🗑️ Delete
+      </button>
+
+    </div>
+
+  `).join("");
+
+}
+
+
+function deleteGratitude(id){
+
+  data.gratitude=data.gratitude.filter(
+    x=>x.id!==id
+  );
+
+  saveData();
+
+  renderGratitude();
+
+}
+
+
+/* ============================================================
+   FAITH LESSONS
+============================================================ */
+
+function saveFaithLesson(event){
+
+  event.preventDefault();
+
+  data.faithLessons.unshift({
+
+    id:uid(),
+
+    text:document.getElementById("lessonText").value.trim(),
+
+    reference:document.getElementById("lessonReference").value.trim(),
+
+    date:getToday(),
+
+    createdAt:new Date().toISOString()
+
+  });
+
+  saveData();
+
+  document.getElementById("lessonText").value="";
+  document.getElementById("lessonReference").value="";
+
+  renderFaithLessons();
+
+  showToast("📝 Faith lesson saved!");
+
+}
+
+
+function renderFaithLessons(){
+
+  const container=document.getElementById("lessonList");
+
+  if(!container){
+    return;
+  }
+
+  if(!data.faithLessons.length){
+
+    container.innerHTML=`
+      <div class="empty">
+        Record what God is teaching you.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML=data.faithLessons.map(item=>`
+
+    <div class="journal-entry">
+
+      <div class="journal-date">
+        📝 ${escapeHTML(item.date)}
+      </div>
+
+      ${item.reference ? `
+        <div class="journal-line">
+          <strong>📖 ${escapeHTML(item.reference)}</strong>
+        </div>
+      `:""}
+
+      <div class="journal-line">
+        ${escapeHTML(item.text)}
+      </div>
+
+      <button
+        class="small-btn"
+        onclick="deleteFaithLesson('${item.id}')">
+        🗑️ Delete
+      </button>
+
+    </div>
+
+  `).join("");
+
+}
+
+
+function deleteFaithLesson(id){
+
+  data.faithLessons=data.faithLessons.filter(
+    x=>x.id!==id
+  );
+
+  saveData();
+
+  renderFaithLessons();
+
+}
+
+
+/* ============================================================
+   GOALS
+============================================================ */
+
+function saveGoal(event){
+
+  event.preventDefault();
+
+  data.goals.unshift({
+
+    id:uid(),
+
+    title:document.getElementById("goalTitle").value.trim(),
+
+    category:document.getElementById("goalCategory").value,
+
+    targetDate:document.getElementById("goalDate").value,
+
+    progress:Number(
+      document.getElementById("goalProgress").value || 0
+    ),
+
+    why:document.getElementById("goalWhy").value.trim(),
+
+    vision:document.getElementById("goalVision").value.trim(),
+
+    milestone:document.getElementById("goalMilestone").value.trim(),
+
+    favorite:false,
+
+    createdAt:new Date().toISOString()
+
+  });
+
+  saveData();
+
+  closeModal("goalModal");
+
+  renderAll();
+
+  showToast("🎯 Goal saved!");
+
+}
+
+
+function renderGoals(){
+
+  const container=document.getElementById("goalList");
+
+  if(!container){
+    return;
+  }
+
+  if(!data.goals.length){
+
+    container.innerHTML=`
+      <div class="empty">
+        Add your first goal and start building your vision.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML=data.goals.map(goal=>{
+
+    const progress=Math.max(
+      0,
+      Math.min(100,Number(goal.progress || 0))
+    );
+
+    return `
+
+      <div class="goal-card">
+
+        <div class="goal-header">
+
+          <div>
+
+            <div class="goal-title">
+              ${escapeHTML(goal.title)}
+              ${goal.favorite ? " ❤️" : ""}
+            </div>
+
+            <div style="color:#777;font-size:13px;margin-top:4px;">
+              ${escapeHTML(goal.category)}
+              ${goal.targetDate
+                ? " • " + escapeHTML(goal.targetDate)
+                : ""}
+            </div>
+
+          </div>
+
+          <div>
+            <strong>${progress}%</strong>
+          </div>
+
+        </div>
+
+        <div class="progress">
+          <div
+            class="progress-bar"
+            style="width:${progress}%">
+          </div>
+        </div>
+
+        ${goal.why ? `
+          <p>
+            <strong>Why:</strong>
+            ${escapeHTML(goal.why)}
+          </p>
+        `:""}
+
+        ${goal.vision ? `
+          <p style="margin-top:8px;">
+            <strong>Vision:</strong>
+            ${escapeHTML(goal.vision)}
+          </p>
+        `:""}
+
+        ${goal.milestone ? `
+          <p style="margin-top:8px;">
+            <strong>First Milestone:</strong>
+            ${escapeHTML(goal.milestone)}
+          </p>
+        `:""}
+
+        <div class="card-actions">
+
+          <button
+            class="small-btn"
+            onclick="changeGoalProgress('${goal.id}')">
+            📈 Update Progress
+          </button>
+
+          <button
+            class="small-btn"
+            onclick="toggleGoalFavorite('${goal.id}')">
+            ${goal.favorite ? "💔 Unfavorite" : "❤️ Favorite"}
+          </button>
+
+          <button
+            class="small-btn"
+            onclick="deleteGoal('${goal.id}')">
+            🗑️ Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+  }).join("");
+
+}
+
+
+function changeGoalProgress(id){
+
+  const goal=data.goals.find(x=>x.id===id);
+
+  if(!goal){
+    return;
+  }
+
+  const value=prompt(
+    "Enter your new progress percentage:",
+    goal.progress
+  );
+
+  if(value===null){
+    return;
+  }
+
+  const number=Number(value);
+
+  if(
+    isNaN(number) ||
+    number<0 ||
+    number>100
+  ){
+
+    showToast("Please enter a number from 0 to 100.");
+
+    return;
+
+  }
+
+  goal.progress=number;
+
+  saveData();
+
   renderAll();
 
 }
 
 
-function toggleMilestone(goalId,milestoneId){
+function toggleGoalFavorite(id){
 
-  const goal=data.goals.find(g=>g.id===goalId);
+  const goal=data.goals.find(x=>x.id===id);
 
-  if(!goal) return;
+  if(goal){
 
-  const milestone=(goal.milestones||[]).find(
-    m=>m.id===milestoneId
-  );
-
-  if(milestone){
-
-    milestone.done=!milestone.done;
+    goal.favorite=!goal.favorite;
 
     saveData();
+
     renderAll();
 
   }
@@ -3373,27 +4661,53 @@ function toggleMilestone(goalId,milestoneId){
 }
 
 
-/* =========================================================
-   BUSINESS
-   ========================================================= */
+function deleteGoal(id){
 
-function saveBusiness(){
+  if(!confirm("Delete this goal?")){
+    return;
+  }
 
-  const item={
-
-    id:id(),
-    category:document.getElementById("bCategory").value,
-    title:document.getElementById("bTitle").value,
-    notes:document.getElementById("bNotes").value,
-    date:today()
-
-  };
-
-  data.business.unshift(item);
+  data.goals=data.goals.filter(x=>x.id!==id);
 
   saveData();
-  closeModal();
+
   renderAll();
+
+}
+
+
+/* ============================================================
+   BUSINESS
+============================================================ */
+
+function saveBusiness(event){
+
+  event.preventDefault();
+
+  data.business.unshift({
+
+    id:uid(),
+
+    category:document.getElementById("businessCategory").value,
+
+    title:document.getElementById("businessTitle").value.trim(),
+
+    notes:document.getElementById("businessNotes").value.trim(),
+
+    date:getToday(),
+
+    favorite:false,
+
+    createdAt:new Date().toISOString()
+
+  });
+
+  saveData();
+
+  document.getElementById("businessTitle").value="";
+  document.getElementById("businessNotes").value="";
+
+  renderBusiness();
 
   showToast("💼 Business note saved!");
 
@@ -3404,13 +4718,15 @@ function renderBusiness(){
 
   const container=document.getElementById("businessList");
 
-  if(!container) return;
+  if(!container){
+    return;
+  }
 
   if(!data.business.length){
 
     container.innerHTML=`
-      <div class="card empty">
-        💼 No business notes yet.
+      <div class="empty">
+        Add your business ideas and notes here.
       </div>
     `;
 
@@ -3418,26 +4734,36 @@ function renderBusiness(){
 
   }
 
-  container.innerHTML=data.business.map(b=>`
 
-    <div class="business-card" style="margin-bottom:15px">
+  container.innerHTML=data.business.map(item=>`
 
-      <span class="tag">${escapeHTML(b.category)}</span>
+    <div class="business-card" style="margin-bottom:14px;">
 
-      <h3 style="margin-top:8px">
-        ${escapeHTML(b.title || "Business Note")}
+      <div style="font-size:12px;color:#d75c87;font-weight:bold;">
+        ${escapeHTML(item.category)}
+      </div>
+
+      <h3 style="margin-top:6px;">
+        ${escapeHTML(item.title)}
       </h3>
 
-      <div class="muted">${formatDate(b.date)}</div>
-
-      <p style="margin-top:12px;line-height:1.6">
-        ${escapeHTML(b.notes)}
+      <p style="white-space:pre-wrap;">
+        ${escapeHTML(item.notes)}
       </p>
 
-      <button class="btn small danger"
-        onclick="deleteItem('business','${b.id}')">
-        Delete
-      </button>
+      <div style="font-size:12px;color:#888;margin-top:10px;">
+        ${escapeHTML(item.date)}
+      </div>
+
+      <div class="card-actions">
+
+        <button
+          class="small-btn"
+          onclick="deleteBusiness('${item.id}')">
+          🗑️ Delete
+        </button>
+
+      </div>
 
     </div>
 
@@ -3446,26 +4772,45 @@ function renderBusiness(){
 }
 
 
-/* =========================================================
-   COLLECTIONS
-   ========================================================= */
+function deleteBusiness(id){
 
-function saveCollection(){
-
-  const collection={
-
-    id:id(),
-    name:document.getElementById("cName").value || "My Collection",
-    icon:document.getElementById("cIcon").value || "🗂️",
-    description:document.getElementById("cDescription").value
-
-  };
-
-  data.collections.unshift(collection);
+  data.business=data.business.filter(x=>x.id!==id);
 
   saveData();
-  closeModal();
-  renderAll();
+
+  renderBusiness();
+
+}
+
+
+/* ============================================================
+   COLLECTIONS
+============================================================ */
+
+function saveCollection(event){
+
+  event.preventDefault();
+
+  data.collections.push({
+
+    id:uid(),
+
+    name:document.getElementById("collectionName").value.trim(),
+
+    icon:document.getElementById("collectionIcon").value.trim() || "🗂️",
+
+    description:
+      document.getElementById("collectionDescription").value.trim(),
+
+    createdAt:new Date().toISOString()
+
+  });
+
+  saveData();
+
+  closeModal("collectionModal");
+
+  renderCollections();
 
   showToast("🗂️ Collection created!");
 
@@ -3474,63 +4819,40 @@ function saveCollection(){
 
 function renderCollections(){
 
-  const container=document.getElementById("collectionsList");
+  const container=document.getElementById("collectionList");
 
-  if(!container) return;
+  if(!container){
+    return;
+  }
 
-  const defaults=[
+  container.innerHTML=data.collections.map(item=>`
 
-    {
-      icon:"👨‍👩‍👧‍👦",
-      name:"Family Memories",
-      description:"Special family moments."
-    },
+    <div class="collection-card">
 
-    {
-      icon:"🏡",
-      name:"Dream Home",
-      description:"Ideas and memories for your dream home."
-    },
+      <div style="font-size:38px;">
+        ${escapeHTML(item.icon)}
+      </div>
 
-    {
-      icon:"✨",
-      name:"My Big Dreams",
-      description:"The dreams you're working toward."
-    },
-
-    {
-      icon:"❤️",
-      name:"Things I Love",
-      description:"Things that make you smile."
-
-    }
-
-  ];
-
-  const all=[
-    ...defaults,
-    ...data.collections
-  ];
-
-  container.innerHTML=all.map(c=>`
-
-    <div class="collection">
-
-      <div style="font-size:38px">${escapeHTML(c.icon)}</div>
-
-      <h3 style="margin-top:8px">
-        ${escapeHTML(c.name)}
+      <h3 style="margin-top:10px;">
+        ${escapeHTML(item.name)}
       </h3>
 
-      <p class="muted" style="margin-top:6px">
-        ${escapeHTML(c.description)}
+      <p>
+        ${escapeHTML(item.description || "")}
       </p>
 
-      ${c.id ? `
-        <button class="btn small danger"
-          onclick="deleteItem('collections','${c.id}')">
-          Delete
-        </button>
+      ${!item.id.startsWith("default-") ? `
+
+        <div class="card-actions">
+
+          <button
+            class="small-btn"
+            onclick="deleteCollection('${item.id}')">
+            🗑️ Delete
+          </button>
+
+        </div>
+
       `:""}
 
     </div>
@@ -3540,142 +4862,230 @@ function renderCollections(){
 }
 
 
-/* =========================================================
+function deleteCollection(id){
+
+  if(!confirm("Delete this collection?")){
+    return;
+  }
+
+  data.collections=data.collections.filter(
+    x=>x.id!==id
+  );
+
+  saveData();
+
+  renderCollections();
+
+}
+
+
+/* ============================================================
    FAVORITES
-   ========================================================= */
+============================================================ */
 
 function renderFavorites(){
 
   const container=document.getElementById("favoritesList");
 
-  if(!container) return;
-
-  const memories=data.memories.filter(x=>x.favorite);
-
-  const goals=data.goals.filter(x=>x.favorite);
-
-  const faith=data.faith.filter(x=>x.favorite);
-
-  const scriptures=data.savedScriptures;
-
-  const affirmations=getAllAffirmations().filter(
-    a=>data.savedAffirmations.includes(a.text)
-  );
+  if(!container){
+    return;
+  }
 
   let html="";
 
-  if(scriptures.length){
+
+  const favoriteMemories=data.memories.filter(x=>x.favorite);
+
+  const favoriteGoals=data.goals.filter(x=>x.favorite);
+
+  const favoriteVerses=data.savedScriptures.filter(x=>x.favorite);
+
+
+  if(favoriteMemories.length){
 
     html+=`
+
       <div class="card">
-        <h3>⭐ Saved Bible Verses</h3>
-        ${scriptures.slice(0,10).map(s=>`
-          <div class="scripture-card">
-            <strong>${escapeHTML(s.bookName)} ${s.chapter}:${s.verse}</strong>
-            <p class="scripture-text">${escapeHTML(s.text)}</p>
-          </div>
-        `).join("")}
-      </div>
-    `;
 
-  }
-
-  if(affirmations.length){
-
-    html+=`
-      <div class="card">
-        <h3>💬 My Affirmations</h3>
-        ${affirmations.map(a=>`
-          <div class="affirmation" style="margin-bottom:10px">
-            <p>${escapeHTML(a.text)}</p>
-          </div>
-        `).join("")}
-      </div>
-    `;
-
-  }
-
-  if(memories.length){
-
-    html+=`
-      <div class="card">
         <h3>📸 Favorite Memories</h3>
-        ${memories.map(m=>`
-          <p style="padding:8px">
-            ⭐ ${escapeHTML(m.title)}
-          </p>
-        `).join("")}
+
+        <div class="memory-grid">
+
+          ${favoriteMemories.map(memory=>{
+
+            const media=getMemoryMedia(memory);
+
+            let mediaHTML="";
+
+            if(media.type==="video" && media.media){
+
+              mediaHTML=`
+                <video
+                  controls
+                  src="${escapeHTML(media.media)}">
+                </video>
+              `;
+
+            }else if(media.media){
+
+              mediaHTML=`
+                <img src="${escapeHTML(media.media)}">
+              `;
+
+            }else{
+
+              mediaHTML=`<div class="no-media">🐝</div>`;
+
+            }
+
+            return `
+
+              <div class="memory-card">
+
+                <div class="memory-media">
+                  ${mediaHTML}
+                </div>
+
+                <div class="memory-body">
+
+                  <div class="memory-title">
+                    ${escapeHTML(memory.title || "Memory")}
+                  </div>
+
+                  <div class="memory-description">
+                    ${escapeHTML(memory.description || "")}
+                  </div>
+
+                </div>
+
+              </div>
+
+            `;
+
+          }).join("")}
+
+        </div>
+
       </div>
+
     `;
 
   }
 
-  if(goals.length){
+
+  if(favoriteGoals.length){
 
     html+=`
+
       <div class="card">
+
         <h3>🎯 Favorite Goals</h3>
-        ${goals.map(g=>`
-          <p style="padding:8px">
-            ⭐ ${escapeHTML(g.title)}
-          </p>
+
+        ${favoriteGoals.map(goal=>`
+
+          <div class="goal-card">
+
+            <strong>
+              ${escapeHTML(goal.title)}
+            </strong>
+
+            <div style="margin-top:7px;">
+              ${Number(goal.progress || 0)}% complete
+            </div>
+
+          </div>
+
         `).join("")}
+
       </div>
+
     `;
 
   }
 
-  if(faith.length){
+
+  if(favoriteVerses.length){
 
     html+=`
+
       <div class="card">
-        <h3>🙏 Favorite Faith Entries</h3>
-        ${faith.map(f=>`
-          <p style="padding:8px">
-            ⭐ ${escapeHTML(f.title || f.text)}
-          </p>
+
+        <h3>✝️ Favorite Bible Verses</h3>
+
+        ${favoriteVerses.map(verse=>`
+
+          <div class="scripture-card">
+
+            <div class="scripture-reference">
+
+              ${escapeHTML(verse.book)}
+              ${escapeHTML(String(verse.chapter))}:
+              ${escapeHTML(String(verse.verse))}
+
+            </div>
+
+            <div class="scripture-text">
+              ${escapeHTML(verse.text)}
+            </div>
+
+          </div>
+
         `).join("")}
+
       </div>
+
     `;
 
   }
+
 
   if(!html){
 
     html=`
-      <div class="card empty">
-        ⭐ You haven't saved any favorites yet.
+
+      <div class="empty">
+
+        ❤️ You don't have any favorites yet.
+
+        <br><br>
+
+        Favorite memories, goals and Bible verses
+        to see them here.
+
       </div>
+
     `;
 
   }
+
 
   container.innerHTML=html;
 
 }
 
 
-/* =========================================================
-   SEARCH
-   ========================================================= */
+/* ============================================================
+   GLOBAL SEARCH
+============================================================ */
 
 function globalSearch(){
 
-  const input=
-    document.getElementById("globalSearchInput");
+  const query=
+    document.getElementById("globalSearch").value
+      .trim()
+      .toLowerCase();
 
-  const container=
-    document.getElementById("searchResults");
+  const container=document.getElementById("searchResults");
 
-  if(!input || !container) return;
-
-  const query=input.value.trim().toLowerCase();
+  if(!container){
+    return;
+  }
 
   if(!query){
 
     container.innerHTML=`
-      <div class="card empty">
-        🔎 Start typing to search your Life Vault.
+      <div class="empty">
+        Start typing to search your Life Vault.
       </div>
     `;
 
@@ -3683,89 +5093,156 @@ function globalSearch(){
 
   }
 
-  let results=[];
 
-  data.memories.forEach(x=>{
-    if(`${x.title} ${x.description} ${x.tags}`
-      .toLowerCase().includes(query)){
+  const results=[];
+
+
+  data.memories.forEach(item=>{
+
+    const text=[
+      item.title,
+      item.description,
+      ...(item.tags || [])
+    ].join(" ").toLowerCase();
+
+    if(text.includes(query)){
+
       results.push({
+
         type:"📸 Memory",
-        title:x.title,
-        text:x.description
+
+        title:item.title || "Memory",
+
+        text:item.description || ""
+
       });
+
     }
+
   });
 
-  data.journal.forEach(x=>{
-    if(`${x.title} ${x.body} ${x.lesson}`
-      .toLowerCase().includes(query)){
+
+  data.journal.forEach(item=>{
+
+    const text=[
+      item.feeling,
+      item.gratitude,
+      item.win,
+      item.lesson,
+      item.thoughts
+    ].join(" ").toLowerCase();
+
+    if(text.includes(query)){
+
       results.push({
+
         type:"📔 Journal",
-        title:x.title,
-        text:x.body
+
+        title:item.date,
+
+        text:
+          item.thoughts ||
+          item.lesson ||
+          item.win ||
+          item.gratitude ||
+          item.feeling
+
       });
+
     }
+
   });
 
-  data.savedScriptures.forEach(x=>{
-    if(`${x.bookName} ${x.chapter} ${x.verse} ${x.text}`
-      .toLowerCase().includes(query)){
+
+  data.savedScriptures.forEach(item=>{
+
+    const text=[
+      item.book,
+      item.chapter,
+      item.verse,
+      item.text
+    ].join(" ").toLowerCase();
+
+    if(text.includes(query)){
+
       results.push({
-        type:"📖 Bible",
-        title:`${x.bookName} ${x.chapter}:${x.verse}`,
-        text:x.text
+
+        type:"✝️ Bible",
+
+        title:
+          item.book +
+          " " +
+          item.chapter +
+          ":" +
+          item.verse,
+
+        text:item.text
+
       });
+
     }
+
   });
 
-  data.goals.forEach(x=>{
-    if(`${x.title} ${x.why} ${x.vision}`
-      .toLowerCase().includes(query)){
+
+  data.goals.forEach(item=>{
+
+    const text=[
+      item.title,
+      item.category,
+      item.why,
+      item.vision,
+      item.milestone
+    ].join(" ").toLowerCase();
+
+    if(text.includes(query)){
+
       results.push({
+
         type:"🎯 Goal",
-        title:x.title,
-        text:x.why
+
+        title:item.title,
+
+        text:item.vision || item.why || ""
+
       });
+
     }
+
   });
 
-  data.business.forEach(x=>{
-    if(`${x.category} ${x.title} ${x.notes}`
-      .toLowerCase().includes(query)){
+
+  data.business.forEach(item=>{
+
+    const text=[
+      item.category,
+      item.title,
+      item.notes
+    ].join(" ").toLowerCase();
+
+    if(text.includes(query)){
+
       results.push({
+
         type:"💼 Business",
-        title:x.title,
-        text:x.notes
+
+        title:item.title,
+
+        text:item.notes
+
       });
+
     }
+
   });
 
-  data.faith.forEach(x=>{
-    if(`${x.title} ${x.text} ${x.reference}`
-      .toLowerCase().includes(query)){
-      results.push({
-        type:"🙏 Faith",
-        title:x.title || "Faith Entry",
-        text:x.text
-      });
-    }
-  });
-
-  getAllAffirmations().forEach(x=>{
-    if(x.text.toLowerCase().includes(query)){
-      results.push({
-        type:"💬 Affirmation",
-        title:categoryLabel(x.category),
-        text:x.text
-      });
-    }
-  });
 
   if(!results.length){
 
     container.innerHTML=`
-      <div class="card empty">
-        No results found for "${escapeHTML(query)}".
+      <div class="empty">
+        No results found for
+        <strong>${escapeHTML(query)}</strong>.
       </div>
     `;
 
@@ -3773,207 +5250,281 @@ function globalSearch(){
 
   }
 
-  container.innerHTML=`
+
+  container.innerHTML=results.map(item=>`
 
     <div class="card">
-      <h3>🔎 ${results.length} result(s)</h3>
-    </div>
 
-    ${results.map(r=>`
-
-      <div class="card">
-
-        <span class="tag">${r.type}</span>
-
-        <h3 style="margin-top:8px">
-          ${escapeHTML(r.title)}
-        </h3>
-
-        <p style="margin-top:8px;line-height:1.6">
-          ${escapeHTML(r.text)}
-        </p>
-
+      <div style="font-size:12px;color:#d75c87;font-weight:bold;">
+        ${escapeHTML(item.type)}
       </div>
 
-    `).join("")}
+      <h3 style="margin-top:6px;">
+        ${escapeHTML(item.title)}
+      </h3>
 
-  `;
+      <p>
+        ${escapeHTML(item.text)}
+      </p>
+
+    </div>
+
+  `).join("");
 
 }
 
 
-/* =========================================================
+/* ============================================================
    HOME
-   ========================================================= */
+============================================================ */
 
 function renderHome(){
 
-  const reflection=data.reflections[today()];
+  const memories=document.getElementById("statMemories");
 
-  const homeReflection=
-    document.getElementById("homeReflection");
-
-  if(homeReflection){
-
-    if(reflection){
-
-      homeReflection.innerHTML=`
-        <strong>Feeling:</strong> ${escapeHTML(reflection.feeling)}<br>
-        <strong>Grateful:</strong> ${escapeHTML(reflection.gratitude)}<br>
-        <strong>Win:</strong> ${escapeHTML(reflection.win)}<br>
-        <strong>Lesson:</strong> ${escapeHTML(reflection.lesson)}
-      `;
-
-    }else{
-
-      homeReflection.textContent=
-        "Take a moment to reflect on today.";
-
-    }
-
+  if(!memories){
+    return;
   }
-
-  const recent=document.getElementById("recentMemories");
-
-  if(recent){
-
-    const list=data.memories.slice(0,5);
-
-    if(!list.length){
-
-      recent.innerHTML=`
-        <div class="empty">
-          Your recent memories will appear here.
-        </div>
-      `;
-
-    }else{
-
-      recent.innerHTML=list.map(m=>`
-
-        <div style="
-          padding:10px;
-          border-bottom:1px solid #eee;
-        ">
-
-          ${memoryIcon(m.type)}
-          <strong>${escapeHTML(m.title)}</strong>
-
-          <span class="muted">
-            · ${formatDate(m.date)}
-          </span>
-
-        </div>
-
-      `).join("");
-
-    }
-
-  }
-
-  if(!currentDailyAffirmation){
-
-    newDailyAffirmation();
-
-  }else{
-
-    const daily=document.getElementById("dailyAffirmation");
-
-    if(daily){
-      daily.textContent=currentDailyAffirmation;
-    }
-
-  }
-
-  if(data.savedScriptures.length){
-
-    const latest=data.savedScriptures[0];
-
-    const homeVerse=document.getElementById("homeVerse");
-
-    if(homeVerse){
-
-      homeVerse.textContent=
-        `"${latest.text.trim()}" — ${latest.bookName} ${latest.chapter}:${latest.verse}`;
-
-    }
-
-  }
-
-}
-
-
-function updateStats(){
 
   document.getElementById("statMemories").textContent=
     data.memories.length;
 
-  document.getElementById("statScriptures").textContent=
-    data.savedScriptures.length;
-
-  document.getElementById("statAffirmations").textContent=
-    data.savedAffirmations.length;
+  document.getElementById("statJournal").textContent=
+    data.journal.length;
 
   document.getElementById("statGoals").textContent=
     data.goals.length;
 
-  document.getElementById("statJournal").textContent=
-    data.journal.length;
+  document.getElementById("statVerses").textContent=
+    data.savedScriptures.length;
 
-  document.getElementById("statReading").textContent=
-    data.readingHistory.length;
+
+  const reflection=document.getElementById("homeReflection");
+
+  const latestJournal=data.journal[0];
+
+  if(latestJournal){
+
+    reflection.innerHTML=`
+
+      <p>
+        <strong>Feeling:</strong>
+        ${escapeHTML(latestJournal.feeling || "Not entered")}
+      </p>
+
+      <p style="margin-top:8px;">
+        <strong>Grateful for:</strong>
+        ${escapeHTML(latestJournal.gratitude || "Not entered")}
+      </p>
+
+      <p style="margin-top:8px;">
+        <strong>Today's win:</strong>
+        ${escapeHTML(latestJournal.win || "Not entered")}
+      </p>
+
+    `;
+
+  }else{
+
+    reflection.innerHTML=`
+
+      <p>
+        Your daily reflection will appear here after
+        you create your first journal entry.
+      </p>
+
+    `;
+
+  }
+
+
+  const faith=document.getElementById("homeFaith");
+
+  const verse=data.savedScriptures[0];
+
+  if(verse){
+
+    faith.innerHTML=`
+
+      <div style="font-size:13px;color:#d75c87;font-weight:bold;">
+        ${escapeHTML(verse.book)}
+        ${escapeHTML(String(verse.chapter))}:
+        ${escapeHTML(String(verse.verse))}
+      </div>
+
+      <p style="margin-top:8px;">
+        "${escapeHTML(verse.text)}"
+      </p>
+
+    `;
+
+  }else{
+
+    faith.innerHTML=`
+
+      <p>
+        Start your Bible journey by reading a chapter.
+      </p>
+
+      <button
+        class="btn btn-pink"
+        style="margin-top:12px;"
+        onclick="showFaithTab('bible')">
+        📖 Read Bible
+      </button>
+
+    `;
+
+  }
+
+
+  const recent=document.getElementById(
+    "homeRecentMemories"
+  );
+
+  const recentMemories=data.memories.slice(0,4);
+
+  if(!recentMemories.length){
+
+    recent.innerHTML=`
+
+      <div class="empty">
+        Your recent memories will appear here.
+      </div>
+
+    `;
+
+  }else{
+
+    recent.innerHTML=`
+
+      <div class="memory-grid">
+
+        ${recentMemories.map(memory=>{
+
+          const media=getMemoryMedia(memory);
+
+          let mediaHTML="";
+
+          if(media.type==="video" && media.media){
+
+            mediaHTML=`
+              <video
+                controls
+                preload="metadata"
+                src="${escapeHTML(media.media)}">
+              </video>
+            `;
+
+          }else if(media.media){
+
+            mediaHTML=`
+              <img
+                src="${escapeHTML(media.media)}"
+                alt="">
+            `;
+
+          }else{
+
+            mediaHTML=`
+              <div class="no-media">
+                🐝
+              </div>
+            `;
+
+          }
+
+          return `
+
+            <div class="memory-card">
+
+              <div class="memory-media">
+                ${mediaHTML}
+              </div>
+
+              <div class="memory-body">
+
+                <div class="memory-title">
+                  ${escapeHTML(memory.title || "Memory")}
+                </div>
+
+                <div style="font-size:12px;color:#888;">
+                  ${escapeHTML(memory.date || "")}
+                </div>
+
+              </div>
+
+            </div>
+
+          `;
+
+        }).join("")}
+
+      </div>
+
+    `;
+
+  }
 
 }
 
 
-/* =========================================================
-   DELETE
-   ========================================================= */
+/* ============================================================
+   RENDER ALL
+============================================================ */
 
-function deleteItem(collection,itemId){
+function renderAll(){
 
-  if(!confirm("Delete this item?")){
-    return;
-  }
+  renderHome();
 
-  if(Array.isArray(data[collection])){
+  renderMemories();
 
-    data[collection]=data[collection].filter(
-      x=>x.id!==itemId
-    );
+  renderJournal();
 
-  }
+  renderSavedScriptures();
 
-  saveData();
-  renderAll();
+  renderReadingHistory();
 
-  showToast("Deleted.");
+  renderAffirmations();
+
+  renderPrayers();
+
+  renderAnsweredPrayers();
+
+  renderGratitude();
+
+  renderFaithLessons();
+
+  renderGoals();
+
+  renderBusiness();
+
+  renderCollections();
+
+  renderFavorites();
 
 }
 
 
-/* =========================================================
+/* ============================================================
    EXPORT / IMPORT
-   ========================================================= */
+============================================================ */
 
 function exportData(){
 
   const backup={
-
     app:"Lessie Bea Life Vault",
-
-    version:"2.0",
-
-    exported:new Date().toISOString(),
-
+    version:"2",
+    exportedAt:new Date().toISOString(),
     data:data
-
   };
+
 
   const blob=new Blob(
     [JSON.stringify(backup,null,2)],
     {type:"application/json"}
   );
+
 
   const url=URL.createObjectURL(blob);
 
@@ -3982,13 +5533,19 @@ function exportData(){
   a.href=url;
 
   a.download=
-    `Lessie-Bea-Life-Vault-Backup-${today()}.json`;
+    "Lessie-Bea-Life-Vault-Backup-" +
+    getToday() +
+    ".json";
+
+  document.body.appendChild(a);
 
   a.click();
 
+  a.remove();
+
   URL.revokeObjectURL(url);
 
-  showToast("💾 Backup downloaded!");
+  showToast("💾 Backup exported.");
 
 }
 
@@ -3997,110 +5554,257 @@ function importData(event){
 
   const file=event.target.files[0];
 
-  if(!file) return;
+  if(!file){
+    return;
+  }
+
 
   const reader=new FileReader();
+
 
   reader.onload=function(e){
 
     try{
 
-      const backup=JSON.parse(e.target.result);
+      const imported=JSON.parse(e.target.result);
 
-      if(!backup.data){
+      const importedData=
+        imported.data ||
+        imported;
 
-        throw new Error("Invalid backup");
 
-      }
-
-      data={
-        ...data,
-        ...backup.data
-      };
+      data=normalizeData(importedData);
 
       saveData();
+
       renderAll();
 
-      showToast("⬆️ Backup imported!");
+      showToast("⬆️ Backup imported successfully.");
 
     }catch(error){
 
-      alert("That file is not a valid Life Vault backup.");
+      console.error(error);
+
+      showToast(
+        "The backup file could not be imported."
+      );
 
     }
 
   };
+
 
   reader.readAsText(file);
 
 }
 
 
-function clearAllData(){
+function deleteAllData(){
 
-  if(!confirm(
-    "Are you sure? This will delete ALL Life Vault data from this browser."
-  )){
+  const first=confirm(
+    "Are you sure you want to delete EVERYTHING in your Life Vault?"
+  );
+
+  if(!first){
     return;
   }
 
+
+  const second=confirm(
+    "This cannot be undone. Did you export a backup first?"
+  );
+
+  if(!second){
+    return;
+  }
+
+
   localStorage.removeItem(STORAGE_KEY);
 
-  location.reload();
+  localStorage.removeItem(OLD_STORAGE_KEY);
+
+
+  data={
+    memories:[],
+    journal:[],
+    savedScriptures:[],
+    readingHistory:[],
+    prayers:[],
+    answeredPrayers:[],
+    gratitude:[],
+    faithLessons:[],
+    goals:[],
+    business:[],
+    collections:[...defaultCollections],
+    customAffirmations:[]
+  };
+
+
+  saveData();
+
+  renderAll();
+
+  showToast("All Life Vault data was deleted.");
 
 }
 
 
-/* =========================================================
-   RENDER EVERYTHING
-   ========================================================= */
+/* ============================================================
+   UTILITIES
+============================================================ */
 
-function renderAll(){
+function escapeHTML(value){
 
-  renderMemories();
-  renderJournal();
-  renderGoals();
-  renderBusiness();
-  renderCollections();
-  renderFavorites();
-  updateStats();
-  renderHome();
-
-  if(
-    document.getElementById("faith-scriptures")?.style.display!=="none"
-  ){
-    renderSavedScriptures();
+  if(value===null || value===undefined){
+    return "";
   }
 
-  if(
-    document.getElementById("faith-history")?.style.display!=="none"
-  ){
-    renderReadingHistory();
-  }
-
-  if(
-    document.getElementById("faith-affirmations")?.style.display!=="none"
-  ){
-    renderAffirmations(currentAffirmationFilter);
-  }
-
-  renderFaithType("prayer","prayerList");
-  renderFaithType("answered","answeredList");
-  renderFaithType("gratitude","gratitudeList");
-  renderFaithType("lesson","lessonList");
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
-/* =========================================================
+function escapeJS(value){
+
+  return String(value ?? "")
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/\r/g,"\\r")
+    .replace(/\n/g,"\\n");
+
+}
+
+
+function formatDateTime(date){
+
+  if(!date){
+    return "";
+  }
+
+  try{
+
+    return new Date(date).toLocaleString();
+
+  }catch(error){
+
+    return date;
+
+  }
+
+}
+
+
+function showToast(message){
+
+  const toast=document.getElementById("toast");
+
+  toast.textContent=message;
+
+  toast.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer=setTimeout(()=>{
+
+    toast.classList.remove("show");
+
+  },3000);
+
+}
+
+
+/* ============================================================
+   CLOSE MODALS WHEN CLICKING OUTSIDE
+============================================================ */
+
+document.querySelectorAll(".modal").forEach(modal=>{
+
+  modal.addEventListener("click",function(event){
+
+    if(event.target===modal){
+
+      modal.classList.remove("show");
+
+    }
+
+  });
+
+});
+
+
+/* ============================================================
    START APP
-   ========================================================= */
+============================================================ */
 
-loadData();
+initializeData();
+
+populateBibleBooks();
 
 renderAll();
 
-initializeBible();
+
+/* ============================================================
+   DEFAULT DATES
+============================================================ */
+
+if(document.getElementById("prayerDate")){
+  document.getElementById("prayerDate").value=getToday();
+}
+
+if(document.getElementById("answeredDate")){
+  document.getElementById("answeredDate").value=getToday();
+}
+
+if(document.getElementById("gratitudeDate")){
+  document.getElementById("gratitudeDate").value=getToday();
+}
+
+
+/* ============================================================
+   BIBLE ENTER KEY
+============================================================ */
+
+document.getElementById("bibleChapter").addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key==="Enter"){
+
+      event.preventDefault();
+
+      readChapter();
+
+    }
+
+  }
+);
+
+
+/* ============================================================
+   TRANSLATION CHANGE
+============================================================ */
+
+document.getElementById("bibleTranslation").addEventListener(
+  "change",
+  function(){
+
+    const reader=document.getElementById("bibleReader");
+
+    if(reader.innerHTML.trim()){
+
+      setBibleStatus(
+        "Bible translation changed. Click Read Chapter to load the new translation."
+      );
+
+    }
+
+  }
+);
 
 </script>
 
